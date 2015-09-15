@@ -107,7 +107,7 @@ sudo apt-get install xclip
 # Aargh on tab-switcher. Hope for solution in coming LTS... Learn how to use super-W instead; probably quicker...
 # http://askubuntu.com/questions/68151/how-do-i-revert-alt-tab-behavior-to-switch-between-windows-on-the-current-worksp/68171#68171
 # http://ubuntuforums.org/showthread.php?t=2211863
-# 
+# https://bugs.launchpad.net/ubuntu/+source/compiz/+bug/1282900
 # Compizconfig is unfortunately shaky and dangerous (I tried below but the static swithcer crashed frequently)
 # sudo apt-get install compizconfig-settings-manager
 # sudo apt-get install compiz-plugins
