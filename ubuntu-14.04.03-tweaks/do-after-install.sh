@@ -1,32 +1,21 @@
-#before install:
+#before install to dual boot ubuntu-unity:
 #  make a live usb stick with ubuntu 14.04
 #  run it and make the disk free space in gparted
-#  install ubuntu -> something else:
-#    create / and swap partitions on /dev/sdb
-#installed ubuntu from live usb on another drive /dev/sdb
+#  choose "install ubuntu" -> choose "something else"
+#    create / and swap partitions 
+# then install ubuntu in new partition
 
-#this fixed the problem that grub did not show up; could not start win7
+# This fixed the problem that grub did not show up; could not start win7:
 sudo grub-install /dev/sda
 sudo update-grub
 #restarted and it worked
 
 # https://fixubuntu.com/ 
 
+# Fix sudo on window apps:
 sudo apt-get install gksu
 
-#http://ubuntuforums.org/showthread.php?t=2211863
-sudo apt-get install compizconfig-settings-manager
-sudo apt-get install compiz-plugins
-# Open compizconfig-settings-manager with alt-F2, type ccsm.
-#   Scroll down to "Ubuntu Unity Plugin". Choose the tab "Switcher". 
-#   Disable the alt-tab and shift-alt-tab key bindings. ("Key to start the switcher" and "Key to switch to the previous window in the Switcher".
-#   Click the "Back" button.
-#   Scroll down to the "Window management" section. Here you can select another switcher. 
-#   I enable the "Static Application Switcher", resolve any potential conflicts by setting the setting for "Static Application Switcher".
-#   Now you can tweak the switcher by clicking on it. I have changed alt-tab and shift-alt-tab to "Next window (All windows)" and "Prev window (All windows)".
-
 # ************** developer tools
-
 # *** git
 # http://stackoverflow.com/questions/19109542/installing-latest-version-of-git-in-ubuntu
 sudo add-apt-repository ppa:git-core/ppa
@@ -112,5 +101,22 @@ sudo dpkg -i pandoc-1.15.0.6-1-amd64.deb
 sudo apt-get install xclip
 
 
+# Fix menu in window title bar
+#http://askubuntu.com/questions/541449/14-04-always-show-menu-items
+
+# Aargh on tab-switcher. Hope for solution in coming LTS... Learn how to use super-W instead; probably quicker...
+# http://askubuntu.com/questions/68151/how-do-i-revert-alt-tab-behavior-to-switch-between-windows-on-the-current-worksp/68171#68171
+# http://ubuntuforums.org/showthread.php?t=2211863
+# 
+# Compizconfig is unfortunately shaky and dangerous (I tried below but the static swithcer crashed frequently)
+# sudo apt-get install compizconfig-settings-manager
+# sudo apt-get install compiz-plugins
+# Open compizconfig-settings-manager with alt-F2, type ccsm.
+#   Scroll down to "Ubuntu Unity Plugin". Choose the tab "Switcher". 
+#   Disable the alt-tab and shift-alt-tab key bindings. ("Key to start the switcher" and "Key to switch to the previous window in the Switcher".
+#   Click the "Back" button.
+#   Scroll down to the "Window management" section. Here you can select another switcher. 
+#   I enable the "Static Application Switcher", resolve any potential conflicts by setting the setting for "Static Application Switcher".
+#   Now you can tweak the switcher by clicking on it. I have changed alt-tab and shift-alt-tab to "Next window (All windows)" and "Prev window (All windows)".
 
 
