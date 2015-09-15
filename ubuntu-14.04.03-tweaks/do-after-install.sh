@@ -89,8 +89,12 @@ wget https://github.com/jgm/pandoc/releases/download/1.15.0.6/pandoc-1.15.0.6-1-
 sudo dpkg -i pandoc-1.15.0.6-1-amd64.deb
 
 # *** xclip
-#  to enable putting things in the paste buffer, e.g. xclip -sel clip < ~/.ssh/id_rsa.pub
+# to enable putting things in the paste buffer, e.g. xclip -sel clip < ~/.ssh/id_rsa.pub
 sudo apt-get install xclip
+
+# *** Filezilla
+# multiflatform file transfer app
+sudo apt-get install filezilla
 
 # Fix menu in window title bar
 #http://askubuntu.com/questions/541449/14-04-always-show-menu-items
