@@ -12,7 +12,7 @@ sudo update-grub
 
 # https://fixubuntu.com/ 
 
-# Fix sudo on window apps:
+# Get gksudo to enable sudo with window apps:
 sudo apt-get install gksu
 
 # ************** developer tools
