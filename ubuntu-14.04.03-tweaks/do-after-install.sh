@@ -37,11 +37,12 @@ sudo apt-get install git
 sudo mkdir /usr/lib/jvm
 sudo mv ~/Downloads/jdk1.8.0_60 /usr/lib/jvm/oracle_jdk8
 gksudo gedit /etc/profile.d/oraclejdk.sh
-#paste code below until ##
+# to set vital paths paste the code below until ## in the file open in gedit 
 export J2SDKDIR=/usr/lib/jvm/oracle_jdk8
 export J2REDIR=/usr/lib/jvm/oracle_jdk8/jre
 export JAVA_HOME=/usr/lib/jvm/oracle_jdk8
 export DERBY_HOME=/usr/lib/jvm/oracle_jdk8/db
+<<<<<<< HEAD
 export PATH=$J2SDKDIR/bin:$DERBY_HOME/bin:$J2REDIR/bin:$PATH
 
 # *** to update oracle javaSE 8 jdk 
@@ -76,6 +77,9 @@ echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.li
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
 sudo apt-get update
 sudo apt-get install sbt
+=======
+##
+>>>>>>> 3f43966604ab0427311d2410001b3952633187ab
 
 # *** eclipse
 ## http://www.eclipse.org/downloads/
@@ -151,8 +155,12 @@ wget https://github.com/jgm/pandoc/releases/download/1.15.0.6/pandoc-1.15.0.6-1-
 sudo dpkg -i pandoc-1.15.0.6-1-amd64.deb
 
 # *** xclip
-#  to enable putting things in the paste buffer, e.g. xclip -sel clip < ~/.ssh/id_rsa.pub
+# to enable putting things in the paste buffer, e.g. xclip -sel clip < ~/.ssh/id_rsa.pub
 sudo apt-get install xclip
+
+# *** Filezilla
+# multiflatform file transfer app
+sudo apt-get install filezilla
 
 # Fix menu in window title bar
 #http://askubuntu.com/questions/541449/14-04-always-show-menu-items
