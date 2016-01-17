@@ -15,6 +15,13 @@ sudo update-grub
 # Get gksudo to enable sudo with window apps:
 sudo apt-get install gksu
 
+# tewak gedit
+## Prohibit gedit to pollute folders with backup~ files:
+gsettings set org.gnome.gedit.preferences.editor create-backup-copy 'false'
+gsettings set org.gnome.gedit.preferences.editor display-line-numbers 'true'
+cd ~/Downloads
+wget ~/.gnome2/gtksourceview-1.0/language-specs/
+
 # *** git
 # http://stackoverflow.com/questions/19109542/installing-latest-version-of-git-in-ubuntu
 sudo add-apt-repository ppa:git-core/ppa
@@ -24,7 +31,7 @@ sudo apt-get install git
 # https://help.github.com/articles/changing-a-remote-s-url/
 # http://stackoverflow.com/questions/9717137/displaying-git-branch-name-in-prompt-does-not-work-in-screen
 
-# *** java
+# *** java first time
 # http://askubuntu.com/questions/521145/how-to-install-oracle-java-on-ubuntu-14-04
 # http://www.oracle.com/technetwork/java/javase/downloads/index.html 
 sudo mkdir /usr/lib/jvm
@@ -33,9 +40,42 @@ gksudo gedit /etc/profile.d/oraclejdk.sh
 #paste code below until ##
 export J2SDKDIR=/usr/lib/jvm/oracle_jdk8
 export J2REDIR=/usr/lib/jvm/oracle_jdk8/jre
-export PATH=$PATH:/usr/lib/jvm/oracle_jdk8/bin:/usr/lib/jvm/oracle_jdk8/db/bin:/usr/lib/jvm/oracle_jdk8/jre/bin
 export JAVA_HOME=/usr/lib/jvm/oracle_jdk8
 export DERBY_HOME=/usr/lib/jvm/oracle_jdk8/db
+export PATH=$J2SDKDIR/bin:$DERBY_HOME/bin:$J2REDIR/bin:$PATH
+
+# *** to update oracle javaSE 8 jdk 
+# download new version of jdk-8u??-linux-x64.tar.gz from (click accept then download)
+#    http://www.oracle.com/technetwork/java/javase/downloads/index.html 
+# extraxt here to ~/Downloads/jdk1.8.0_?? with some number instead of ??
+sudo mv /usr/lib/jvm/oracle_jdk8 /usr/lib/jvm/oracle_jdk8_old
+sudo mv ~/Downloads/jdk1.8.0_?? /usr/lib/jvm/oracle_jdk8
+# test it:
+java -version
+# remove old:
+sudo rm -rf /usr/lib/jvm/oracle_jdk8_old
+##
+
+
+# *** scala   check the latest version number here: 
+#             http://www.scala-lang.org/download/all.html
+cd ~/Downloads
+wget http://www.scala-lang.org/files/archive/scala-2.11.7.deb
+sudo dpkg -i scala-2.11.7.deb
+# the above command will install som shell scripts to run scala stuff in /usr/bin/scala*
+ls /usr/bin/scala*
+# the scala libs will be placed here:
+whereis scala
+# scala: /usr/bin/scala /usr/bin/X11/scala /usr/share/scala /usr/share/man/man1/scala.1.gz
+# add SCALA_HOME to your ~/.profile if it is not already there:
+grep -q 'export SCALA_HOME' ~/.profile || echo 'export SCALA_HOME=/usr/share/scala' >>~/.profile
+
+# *** sbt Scala Build Tool
+# http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Linux.html 
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+sudo apt-get update
+sudo apt-get install sbt
 
 # *** eclipse
 ## http://www.eclipse.org/downloads/
@@ -54,6 +94,28 @@ Comment=Integrated Development Environment
 NoDisplay=false
 Categories=Development;IDE;
 Name[en]=Eclipse
+
+# *** scala ide
+## http://scala-ide.org/download/sdk.html
+cd ~/Downloads
+mkdir scalaide
+cd scalaide
+wget http://downloads.typesafe.com/scalaide-pack/4.3.0-vfinal-luna-211-20151201/scala-SDK-4.3.0-vfinal-2.11-linux.gtk.x86_64.tar.gz   ## change to latest version
+tar -zxvf scala-SDK-*.tar.gz
+sudo mv eclipse /opt/scalaide
+echo "
+[Desktop Entry]
+Name=Scala IDE
+Type=Application
+Exec=/opt/scalaide/eclipse
+Terminal=false
+Icon=/opt/scalaide/icon.xpm
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=Scala IDE" > scalaide.desktop
+sudo mv scalaide.desktop /usr/share/applications/.
+
 
 # *** sublime
 # http://www.webupd8.org/2013/07/sublime-text-3-ubuntu-ppa-now-available.html
