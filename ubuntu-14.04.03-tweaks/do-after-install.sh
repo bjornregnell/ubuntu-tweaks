@@ -12,15 +12,34 @@ sudo update-grub
 
 # https://fixubuntu.com/ 
 
-# Get gksudo to enable sudo with window apps:
+# install gksudo to enable sudo with window apps:
 sudo apt-get install gksu
 
-# tewak gedit
+# tweak gedit
 ## Prohibit gedit to pollute folders with backup~ files:
 gsettings set org.gnome.gedit.preferences.editor create-backup-copy 'false'
+## Show line numbers:
 gsettings set org.gnome.gedit.preferences.editor display-line-numbers 'true'
+## Dark theme:
+gsettings set org.gnome.gedit.preferences.editor scheme 'oblivion'
+## Enable Scala syntax highlighting: 
+#     http://shanky.org/2011/09/27/scala-syntax-highlighting-in-gedit/  
 cd ~/Downloads
-wget ~/.gnome2/gtksourceview-1.0/language-specs/
+wget https://raw.githubusercontent.com/bjornregnell/ubuntu-tweaks/master/ubuntu-14.04.03-tweaks/scala.lang
+mkdir ~/.gnome2/
+mkdir ~/.gnome2/gtksourceview-1.0/
+mkdir ~/.gnome2/gtksourceview-1.0/language-specs/
+mv scala.lang ~/.gnome2/gtksourceview-1.0/language-specs/.
+echo "<?xml version='1.0' encoding='UTF-8'?>
+<mime-info
+ xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+<mime-type type='text/x-scala'>
+<comment>Scala programming language</comment>
+<glob pattern='*.scala'/>
+</mime-type>
+</mime-info>" > scala-mime.xml
+sudo mv scala-mime.xml /usr/share/mime/packages/scala-mime.xml
+sudo update-mime-database /usr/share/mime
 
 # *** git
 # http://stackoverflow.com/questions/19109542/installing-latest-version-of-git-in-ubuntu
@@ -34,8 +53,11 @@ sudo apt-get install git
 # *** java first time
 # http://askubuntu.com/questions/521145/how-to-install-oracle-java-on-ubuntu-14-04
 # http://www.oracle.com/technetwork/java/javase/downloads/index.html 
+# click accept above and download into Downloads and 
+#   extraxt to ~/Downloads/jdk1.8.0_?? with some number instead of ?? and update ?? below
+sudo mv /usr/lib/jvm/oracle_jdk8 /usr/lib/jvm/oracle_jdk8_old
 sudo mkdir /usr/lib/jvm
-sudo mv ~/Downloads/jdk1.8.0_60 /usr/lib/jvm/oracle_jdk8
+sudo mv ~/Downloads/jdk1.8.0_?? /usr/lib/jvm/oracle_jdk8
 gksudo gedit /etc/profile.d/oraclejdk.sh
 # to set vital paths paste the code below until ## in the file open in gedit 
 export J2SDKDIR=/usr/lib/jvm/oracle_jdk8
@@ -48,7 +70,7 @@ export PATH=$J2SDKDIR/bin:$DERBY_HOME/bin:$J2REDIR/bin:$PATH
 # *** to update oracle javaSE 8 jdk 
 # download new version of jdk-8u??-linux-x64.tar.gz from (click accept then download)
 #    http://www.oracle.com/technetwork/java/javase/downloads/index.html 
-# extraxt here to ~/Downloads/jdk1.8.0_?? with some number instead of ??
+# extraxt to ~/Downloads/jdk1.8.0_?? with some number instead of ?? and update ?? below
 sudo mv /usr/lib/jvm/oracle_jdk8 /usr/lib/jvm/oracle_jdk8_old
 sudo mv ~/Downloads/jdk1.8.0_?? /usr/lib/jvm/oracle_jdk8
 # test it:
@@ -77,9 +99,16 @@ echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.li
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
 sudo apt-get update
 sudo apt-get install sbt
-=======
-##
->>>>>>> 3f43966604ab0427311d2410001b3952633187ab
+
+# Syntax highligting in REPL:
+# 
+# Put this into your ~/.sbt/0.13/user.sbt:
+echo "initialize ~= { _ =>
+  val ansi = System.getProperty(\"sbt.log.noformat\", \"false\") != "true"
+  if (ansi) System.setProperty(\"scala.color\", \"true\")
+}" >>  ~/.sbt/0.13/user.sbt
+
+
 
 # *** eclipse
 ## http://www.eclipse.org/downloads/
@@ -107,8 +136,7 @@ cd scalaide
 wget http://downloads.typesafe.com/scalaide-pack/4.3.0-vfinal-luna-211-20151201/scala-SDK-4.3.0-vfinal-2.11-linux.gtk.x86_64.tar.gz   ## change to latest version
 tar -zxvf scala-SDK-*.tar.gz
 sudo mv eclipse /opt/scalaide
-echo "
-[Desktop Entry]
+echo "[Desktop Entry]
 Name=Scala IDE
 Type=Application
 Exec=/opt/scalaide/eclipse
@@ -119,7 +147,6 @@ NoDisplay=false
 Categories=Development;IDE;
 Name[en]=Scala IDE" > scalaide.desktop
 sudo mv scalaide.desktop /usr/share/applications/.
-
 
 # *** sublime
 # http://www.webupd8.org/2013/07/sublime-text-3-ubuntu-ppa-now-available.html
@@ -148,6 +175,39 @@ apt-get install myspell-sv-se
 # USE <TAB> BEFORE PRESSING <ENTER>
 sudo apt-get install ttf-mscorefonts-installer
 
+# *** tweak texworks editor: http://latex-community.org/forum/viewtopic.php?f=56&t=6921 
+# edit this file: /usr/share/applications/texworks.desktop
+#    change the Exec= line to: 
+#  Exec=texworks -stylesheet /home/bjornr/.TeXworks/configuration/mystyle.css %F
+echo "QTextEdit {
+  background-color: rgb(39, 40, 34);  
+  color: black;            /* sets the main text color */
+}
+" > ~/.TeXworks/configuration/mystyle.css
+# Edit the colors in ~/.TeXworks/configuration/syntax-patterns.txt
+#http://www.colourlovers.com/palette/1718713/Monokai
+[LaTeX]             
+# special characters #FD971Fo
+#darkred		N	[$#^_{}&]
+ #FD971F		N	[$#^_{}&]
+
+# LaTeX environments   
+#darkgreen	N	\\(?:begin|end)\s*\{[^}]*\}
+ #A6E22E    N	\\(?:begin|end)\s*\{[^}]*\}
+ 
+# LaTeX packages
+#darkblue	N	\\usepackage\s*(?:\[[^]]*\]\s*)?\{[^}]*\}
+ #FD971F  N	\\usepackage\s*(?:\[[^]]*\]\s*)?\{[^}]*\}
+ 
+# control sequences
+#blue		N	\\(?:[A-Za-z@]+|.)
+ #66D9EF		N	\\(?:[A-Za-z@]+|.)
+
+# comments
+#red			Y	%.*
+ #F92672	Y	%.*
+
+
 # *** pandoc
 # check which latest version here: https://github.com/jgm/pandoc/releases/tag/1.15.0.6
 # this is probably old: sudo apt-get install pandoc
@@ -158,11 +218,32 @@ sudo dpkg -i pandoc-1.15.0.6-1-amd64.deb
 # to enable putting things in the paste buffer, e.g. xclip -sel clip < ~/.ssh/id_rsa.pub
 sudo apt-get install xclip
 
+# *** tree
+#  to enable tree listing in terminal
+sudo apt-get install tree
+
 # *** Filezilla
 # multiflatform file transfer app
 sudo apt-get install filezilla
 
+# *** Ammonite REPL alternative to scala REPL
+#   http://lihaoyi.github.io/Ammonite/#Ammonite-REPL
+cd ~/Downloads
+curl -L -o amm https://git.io/v0FGO
+chmod +x amm
+sudo mkdir /opt/ammonite
+sudo mv amm /opt/ammonite/.
+sudo ln -s /opt/ammonite/amm /usr/bin/amm 
+
+#using the Ammonite REPL as a replacement for the standard REPL (also known as the console). Ammonite features pretty printing, loading of dependencies directly from the REPL, multiline input and many more. Add to global.sbt
+#  http://lihaoyi.github.io/Ammonite/ 
+#  http://underscore.io/blog/posts/2015/11/09/sbt-commands.html 
+libraryDependencies += "com.lihaoyi" % "ammonite-repl" % "0.4.8" % "test" cross CrossVersion.full
+initialCommands in (Test, console) := """ammonite.repl.Repl.run("")"""
+
 # Fix menu in window title bar
+# http://askubuntu.com/questions/25785/can-auto-hide-for-the-application-menu-be-turned-off-in-unity
+gsettings set com.canonical.Unity always-show-menus false
 #http://askubuntu.com/questions/541449/14-04-always-show-menu-items
 # Aargh on tab-switcher. Hope for solution in coming LTS... Learn how to use super-W instead; probably quicker...
 # http://askubuntu.com/questions/68151/how-do-i-revert-alt-tab-behavior-to-switch-between-windows-on-the-current-worksp/68171#68171
