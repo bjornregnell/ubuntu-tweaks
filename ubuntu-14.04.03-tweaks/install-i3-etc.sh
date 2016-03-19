@@ -1,7 +1,12 @@
 # https://i3wm.org/
-# http://packages.ubuntu.com/trusty/amd64/i3/download
-# Open below link in browser and the open with Ubunto Software Center (default) in popup 
-# http://se.archive.ubuntu.com/ubuntu/pool/universe/i/i3-wm/i3_4.7.2-1_amd64.deb 
+# http://i3wm.org/docs/repositories.html
+
+echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list
+apt-get update
+apt-get --allow-unauthenticated install sur5r-keyring
+apt-get update
+apt-get install i3
+
 sudo apt-get install dmenu
 
 
