@@ -275,5 +275,21 @@ sudo apt-get install dkms
 ## in the dir with VBOXADDITIONS run: sudo ./VBoxLinuxAdditions.run
 ## Restart the vbox machine
 
+# i3 window manager and extra stuff
+# https://i3wm.org/
+# http://i3wm.org/docs/repositories.html
+
+sudo echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get --allow-unauthenticated install sur5r-keyring
+sudo apt-get update
+sudo apt-get install i3
+
+sudo apt-get install dmenu
+sudo apt-get install dunst
+sudo apt-get install i3lock
+sudo apt-get install i3status
+sudo apt-get install suckless-tools
+sudo apt-get install gnome-settings-daemon
 
 
