@@ -50,6 +50,15 @@ sudo apt-get install git
 # https://help.github.com/articles/changing-a-remote-s-url/
 # http://stackoverflow.com/questions/9717137/displaying-git-branch-name-in-prompt-does-not-work-in-screen
 
+#add these lines in .bashrc to enable aliases for git
+# aliases for git
+function gs() { echo git status "$@"; git status "$@"; }
+function ga() { echo git add "$@"; git add "$@"; }
+function gd() { echo git diff "$@"; git diff "$@"; }
+function gc() { echo git commit -m "$@"; git commit -m "$@"; }
+function gca() { echo git commit -am "$@"; git commit -am "$@"; }
+function gp() { echo git pull; git pull; echo git push "$@"; git push "$@"; }
+
 # *** java first time install
 # http://askubuntu.com/questions/521145/how-to-install-oracle-java-on-ubuntu-14-04
 # http://www.oracle.com/technetwork/java/javase/downloads/index.html 
