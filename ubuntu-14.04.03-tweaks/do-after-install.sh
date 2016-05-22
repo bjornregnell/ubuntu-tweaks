@@ -53,6 +53,7 @@ sudo apt-get install git
 #add these lines in .bashrc to enable aliases for git
 # aliases for git
 function gs() { echo git status "$@"; git status "$@"; }
+function gl() { echo git log "$@"; git log "$@"; }
 function ga() { echo git add "$@"; git add "$@"; }
 function gd() { echo git diff "$@"; git diff "$@"; }
 function gc() { echo git commit -m "$@"; git commit -m "$@"; }
