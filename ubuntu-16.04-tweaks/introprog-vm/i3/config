@@ -166,8 +166,7 @@ bar {
 #  https://faq.i3wm.org/question/115/how-to-configure-gtk-theme-support/%3C/p%3E.html
 exec gnome-settings-daemon
 
-exec --no-startup-id i3-msg 'workspace 1; exec firefox'
-exec --no-startup-id i3-msg 'workspace 2; exec gnome-terminal; exec gedit'
+exec --no-startup-id i3-msg 'workspace 1; exec firefox "https://i3wm.org/docs/refcard.html";exec gnome-terminal'
 
 exec --no-startup-id i3-msg 'workspace 1'
 
