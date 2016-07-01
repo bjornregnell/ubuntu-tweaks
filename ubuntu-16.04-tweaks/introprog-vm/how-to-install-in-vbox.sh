@@ -23,9 +23,8 @@ cat SHA256SUMS| grep desktop-amd64 | sha256sum -c -
 #  Erase disk and install ubuntu: click Install Now
 #  Where are you? Stockholm
 #  Keyboard: Swedish
-#  Who ara you?  student; vbox; student; pgk-bytmig2016
+#  Who are you?  name; vbox; name; pwd 
 #     log in automatically
-#
 
 
 
