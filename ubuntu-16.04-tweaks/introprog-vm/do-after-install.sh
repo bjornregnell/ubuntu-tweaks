@@ -162,13 +162,13 @@ sudo apt-get update
 export IBUS_ENABLE_SYNC_MODE=1
 
 
-#################################################  ovan är gjort till hit ### 
-
-# i3 window manager and extra stuff
+ # i3 window manager and extra stuff
 # https://i3wm.org/
 # http://i3wm.org/docs/repositories.html
 sudo apt-get update
 sudo apt-get install i3
+
+#################################################  ovan är gjort till hit ###
 
 #sudo apt-get install dmenu
 #sudo apt-get install dunst
