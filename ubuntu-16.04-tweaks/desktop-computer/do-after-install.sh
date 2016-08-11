@@ -292,3 +292,27 @@ sudo apt-get install suckless-tools
 sudo apt-get install gnome-settings-daemon
 
 
+## Get old adobe 9 -- the only reader in linux that can view XFA Forms & comments
+# http://askubuntu.com/questions/89127/how-do-i-install-adobe-acrobat-reader-deb-package-downloaded-from-adobe-website
+#  Some background info:
+#      https://www.linux.com/news/3-alternatives-adobe-pdf-reader-linux 
+#      http://askubuntu.com/questions/18495/which-pdf-viewer-would-you-recommend
+#
+#Download Adobe Reader (32-bit), from Adobe site:
+cd ~/Downloads
+wget ftp://ftp.adobe.com/pub/adobe/reader/unix/9.x/9.5.5/enu/AdbeRdr9.5.5-1_i386linux_enu.deb
+#    Check MD5SUM after downloading, input
+md5sum AdbeRdr9.5.5-1_i386linux_enu.deb
+#    the ouput should be
+#    88036c68998d565c4365e2ad89b04d51 AdbeRdr9.5.5-1_i386linux_enu.deb
+sudo dpkg -i --force-architecture AdbeRdr9.5.5-1_i386linux_enu.deb
+sudo apt-get -f install
+#    Add the missing 32-bit libraries: (skip this step for 32-bit)
+sudo apt-get install libxml2:i386 lib32stdc++6
+#    (OPTIONAL) Run for first time, to get icon in Unity menu bar.
+#    acroread <path>/<MyDocument>.pdf
+
+
+
+
+

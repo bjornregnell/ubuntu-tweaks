@@ -153,6 +153,14 @@ sudo mv kojo.desktop /usr/share/applications/.
 rm kojoInstall*
 rm auto-install.xml
 
+# IntelliJ https://launchpad.net/~mmk2410/+archive/ubuntu/intellij-idea-community
+sudo add-apt-repository ppa:mmk2410/intellij-idea-community
+sudo apt-get update
+# Select Scala plugin on first run
+# https://youtrack.jetbrains.com/issue/IDEA-78860
+# Keyboard input sometimes is blocked when IBus is active 
+export IBUS_ENABLE_SYNC_MODE=1
+
 
 #################################################  ovan är gjort till hit ### 
 
