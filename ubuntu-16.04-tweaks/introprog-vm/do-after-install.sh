@@ -183,3 +183,6 @@ cd .i3
 wget https://github.com/bjornregnell/ubuntu-tweaks/raw/master/ubuntu-16.04-tweaks/introprog-vm/i3/config
 wget https://github.com/bjornregnell/ubuntu-tweaks/raw/master/ubuntu-16.04-tweaks/introprog-vm/i3/i3status.conf
 
+# installera smartgit eller gitkraken ???
+
+
