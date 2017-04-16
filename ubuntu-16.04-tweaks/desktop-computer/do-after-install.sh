@@ -71,8 +71,6 @@ echo 'export SCALA_HOME=/usr/share/scala' >>~/.profile
       sudo mv amm /opt/ammonite/.
       sudo ln -s /opt/ammonite/amm /usr/bin/amm 
 
-
-
 # *** sbt Scala Build Tool
 # http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Linux.html 
 echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
@@ -312,6 +310,10 @@ sudo apt-get install libxml2:i386 lib32stdc++6
 #    (OPTIONAL) Run for first time, to get icon in Unity menu bar.
 #    acroread <path>/<MyDocument>.pdf
 
+
+## Make java plugin available in Firefox:
+cd /usr/lib/firefox-addons/plugins/
+sudo ln -s /usr/lib/jvm/oracle_jdk8/jre/lib/amd64/libnpjp2.so .
 
 
 
