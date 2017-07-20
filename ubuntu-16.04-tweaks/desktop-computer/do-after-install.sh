@@ -11,9 +11,85 @@ sudo update-grub
 #restarted and it worked
 
 # https://fixubuntu.com/ 
+# http://askubuntu.com/questions/760204/how-to-remove-the-unity-amazon-package-in-16-04
+cp /usr/share/applications/ubuntu-amazon-default.desktop ~/.local/share/applications/ubuntu-amazon-default.desktop
+echo Hidden=true >> ~/.local/share/applications/ubuntu-amazon-default.desktop
+# Then clear history:
+# System settings -> Security & Privacy -> files & applications -> clear usage data -> From all time
+
+# http://www.webupd8.org/2016/04/things-to-do-after-installing-ubuntu-1604-lts-xenial-xerus.html
+
+sudo apt install unity-tweak-tool
+# If in virtualbox remove animations in unity tweak tool:
+#     General-window animations OFF
+
+sudo apt install ubuntu-restricted-extras
+# after above: scroll down and hit tab until ok is red then press enter
+
+sudo apt install libavcodec-extra 
 
 # install gksudo to enable sudo with window apps:
 sudo apt-get install gksu
+
+
+### Programming tools:
+
+
+# *** JAVA
+# http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt update
+sudo apt install oracle-java8-installer
+sudo apt-get install oracle-java8-set-default
+
+# to make sure make is of latest version:
+sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+sudo apt update
+sudo apt install ubuntu-make
+
+
+# *** SCALA   check the latest version number here: 
+#             http://www.scala-lang.org/download/all.html
+cd ~/Downloads
+wget http://www.scala-lang.org/files/archive/scala-2.11.8.deb
+sudo dpkg -i scala-2.11.8.deb
+rm scala-2.11.8.deb
+# the above command will install some shell scripts to run scala stuff in /usr/bin/scala*
+ls /usr/bin/scala*
+# the scala libs will be placed here:
+whereis scala
+# scala: /usr/bin/scala /usr/bin/X11/scala /usr/share/scala /usr/share/man/man1/scala.1.gz
+# add SCALA_HOME to your ~/.profile if it is not already there:
+echo 'export SCALA_HOME=/usr/share/scala' >>~/.profile
+
+      # *** Ammonite REPL alternative to scala REPL  --- OPTIONAL -- it seems slower than normal REPL
+      #   http://lihaoyi.github.io/Ammonite/#Ammonite-REPL
+      cd ~/Downloads
+      wget https://git.io/vo4w5 -O amm
+      chmod +x amm
+      sudo mkdir /opt/ammonite
+      sudo mv amm /opt/ammonite/.
+      sudo ln -s /opt/ammonite/amm /usr/bin/amm 
+
+# *** sbt Scala Build Tool
+# http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Linux.html 
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+sudo apt-get update
+sudo apt-get install sbt
+sbt   # this will take long time the first time.....
+
+
+ 
+# *** git
+# http://stackoverflow.com/questions/19109542/installing-latest-version-of-git-in-ubuntu
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git  
+# http://stackoverflow.com/questions/8588768/git-push-username-password-how-to-avoid
+# https://help.github.com/articles/changing-a-remote-s-url/
+# http://stackoverflow.com/questions/9717137/displaying-git-branch-name-in-prompt-does-not-work-in-screen
+
 
 # tweak gedit
   ## Prohibit gedit to pollute folders with backup~ files:
@@ -22,105 +98,34 @@ gsettings set org.gnome.gedit.preferences.editor create-backup-copy 'false'
 gsettings set org.gnome.gedit.preferences.editor display-line-numbers 'true'
   ## Dark theme:
 gsettings set org.gnome.gedit.preferences.editor scheme 'oblivion'
-  ## Enable Scala syntax highlighting: 
-  ## http://shanky.org/2011/09/27/scala-syntax-highlighting-in-gedit/  
-cd ~/Downloads
-wget https://raw.githubusercontent.com/bjornregnell/ubuntu-tweaks/master/ubuntu-14.04.03-tweaks/scala.lang
-mkdir ~/.gnome2/
-mkdir ~/.gnome2/gtksourceview-1.0/
-mkdir ~/.gnome2/gtksourceview-1.0/language-specs/
-mv scala.lang ~/.gnome2/gtksourceview-1.0/language-specs/.
-echo "<?xml version='1.0' encoding='UTF-8'?>
-<mime-info
- xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-<mime-type type='text/x-scala'>
-<comment>Scala programming language</comment>
-<glob pattern='*.scala'/>
-</mime-type>
-</mime-info>" > scala-mime.xml
-sudo mv scala-mime.xml /usr/share/mime/packages/scala-mime.xml
-sudo update-mime-database /usr/share/mime
 
-# *** git
-# http://stackoverflow.com/questions/19109542/installing-latest-version-of-git-in-ubuntu
-sudo add-apt-repository ppa:git-core/ppa
+
+# *** Latex
+# https://help.ubuntu.com/community/LaTeX
+sudo apt-get install texlive-full
+sudo apt-get install myspell-sv-se
+
+# https://launchpad.net/~texworks/+archive/ubuntu/stable
+sudo add-apt-repository ppa:texworks/stable
 sudo apt-get update
-sudo apt-get install git
-# http://stackoverflow.com/questions/8588768/git-push-username-password-how-to-avoid
-# https://help.github.com/articles/changing-a-remote-s-url/
-# http://stackoverflow.com/questions/9717137/displaying-git-branch-name-in-prompt-does-not-work-in-screen
+sudo apt-get install texworks
 
-#add these lines in .bashrc to enable aliases for git
-# aliases for git
-function gs() { echo git status "$@"; git status "$@"; }
-function gl() { echo git log "$@"; git log "$@"; }
-function ga() { echo git add "$@"; git add "$@"; }
-function gd() { echo git diff "$@"; git diff "$@"; }
-function gc() { echo git commit -m "$@"; git commit -m "$@"; }
-function gca() { echo git commit -am "$@"; git commit -am "$@"; }
-function gp() { echo git pull; git pull; echo git push "$@"; git push "$@"; }
 
-# *** java first time install
-# http://askubuntu.com/questions/521145/how-to-install-oracle-java-on-ubuntu-14-04
-# http://www.oracle.com/technetwork/java/javase/downloads/index.html 
-#   click accept above and download e.g. Linux x64 jdk-8u73-linux-x64.tar.gz 
-#     into Downloads and 
-#     extraxt to ~/Downloads/jdk1.8.0_?? 
-#     with some number instead of ?? and update ?? below
-sudo mkdir /usr/lib/jvm
-sudo mv ~/Downloads/jdk1.8.0_?? /usr/lib/jvm/oracle_jdk8
-gksudo gedit /etc/profile.d/oraclejdk.sh
-# to set vital paths paste the code below 
-# until but not including ## in the file /etc/profile.d/oraclejdk.sh open in gedit 
-export J2SDKDIR=/usr/lib/jvm/oracle_jdk8
-export J2REDIR=/usr/lib/jvm/oracle_jdk8/jre
-export JAVA_HOME=/usr/lib/jvm/oracle_jdk8
-export DERBY_HOME=/usr/lib/jvm/oracle_jdk8/db
-export PATH=$J2SDKDIR/bin:$DERBY_HOME/bin:$J2REDIR/bin:$PATH
-##
-sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/oracle_jdk8/jre/bin/java 2000
-sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/oracle_jdk8/bin/javac 2000
+        ### ?????? finns ej: ??? sudo apt-get install texlive-lang-swedish
+        #### ovan kanske inte behövs eftersom denna finns???
+        ######### https://launchpad.net/ubuntu/xenial/+package/texlive-lang-european
 
-# *** to update oracle javaSE 8 jdk 
-# download new version of jdk-8u??-linux-x64.tar.gz from (click accept then download)
-#    http://www.oracle.com/technetwork/java/javase/downloads/index.html 
-# extraxt to ~/Downloads/jdk1.8.0_?? with some number instead of ?? and update ?? below
-sudo mv /usr/lib/jvm/oracle_jdk8 /usr/lib/jvm/oracle_jdk8_old
-sudo mv ~/Downloads/jdk1.8.0_?? /usr/lib/jvm/oracle_jdk8
-# test it:
-java -version
-# remove old:
-sudo rm -rf /usr/lib/jvm/oracle_jdk8_old
-##
 
-# *** scala   check the latest version number here: 
-#             http://www.scala-lang.org/download/all.html
-cd ~/Downloads
-wget http://www.scala-lang.org/files/archive/scala-2.11.8.deb
-sudo dpkg -i scala-2.11.8.deb
-# the above command will install some shell scripts to run scala stuff in /usr/bin/scala*
-ls /usr/bin/scala*
-# the scala libs will be placed here:
-whereis scala
-# scala: /usr/bin/scala /usr/bin/X11/scala /usr/share/scala /usr/share/man/man1/scala.1.gz
-# add SCALA_HOME to your ~/.profile if it is not already there:
-grep -q 'export SCALA_HOME' ~/.profile || echo 'export SCALA_HOME=/usr/share/scala' >>~/.profile
+        # put your custom latex .sty files from lth here:
+        # http://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te
 
-# *** sbt Scala Build Tool
-# http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Linux.html 
 
-echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
-sudo apt-get update
-sudo apt-get install sbt
 
-# Syntax highligting in REPL:
-# 
-# Put this into your ~/.sbt/0.13/user.sbt:
-echo "initialize ~= { _ =>
-  val ansi = System.getProperty(\"sbt.log.noformat\", \"false\") != "true"
-  if (ansi) System.setProperty(\"scala.color\", \"true\")
-}" >>  ~/.sbt/0.13/user.sbt
+
+#################################################  ovan är gjort till hit ### 
+
+
+
 
 # *** eclipse
 ## http://www.eclipse.org/downloads/
@@ -139,6 +144,11 @@ Comment=Integrated Development Environment
 NoDisplay=false
 Categories=Development;IDE;
 Name[en]=Eclipse
+
+
+
+
+
 
 # *** scala ide
 ## http://scala-ide.org/download/sdk.html
@@ -172,28 +182,18 @@ ls /opt/sublime_text/Packages/
 cd /opt/sublime_text/Packages/
 sudo cp ~/Downloads/Language\ -\ English.sublime-package .
 
-# *** Latex
-# https://help.ubuntu.com/community/LaTeX
-sudo apt-get install texlive-full
-sudo apt-get install texlive-lang-swedish
-sudo apt-get install texworks  
-apt-get install myspell-sv-se
-# put your custom latex .sty files from lth here:
-# http://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te
 
-# *** ms fonts
-# http://www.pcworld.com/article/2863497/how-to-install-microsoft-fonts-in-linux-office-suites.html
-# below must be run in terminal to accept EULA terms
-# USE <TAB> BEFORE PRESSING <ENTER>
-sudo apt-get install ttf-mscorefonts-installer
 
 # *** tweak texworks editor: http://latex-community.org/forum/viewtopic.php?f=56&t=6921 
-# edit this file: /usr/share/applications/texworks.desktop
+# edit this file: 
+# gksudo gedit /usr/share/applications/texworks.desktop
 #    change the Exec= line to: 
 #  Exec=texworks -stylesheet /home/bjornr/.TeXworks/configuration/mystyle.css %F
+#
+#  Create the css style file:
 echo "QTextEdit {
   background-color: rgb(39, 40, 34);  
-  color: black;            /* sets the main text color */
+  color: white;            /* sets the main text color */
 }
 " > ~/.TeXworks/configuration/mystyle.css
 # add alias tw -> texworks in bg with the new nice stylesheet
@@ -226,11 +226,11 @@ function tw() { texworks -stylesheet /home/bjornr/.TeXworks/configuration/mystyl
  #F92672	Y	%.*
 
 
+
 # *** pandoc
-# check which latest version here: https://github.com/jgm/pandoc/releases/tag/1.15.0.6
-# this is probably old: sudo apt-get install pandoc
-wget https://github.com/jgm/pandoc/releases/download/1.15.0.6/pandoc-1.15.0.6-1-amd64.deb
-sudo dpkg -i pandoc-1.15.0.6-1-amd64.deb
+# check which latest version here: https://github.com/jgm/pandoc/releases
+wget https://github.com/jgm/pandoc/releases/download/1.17.1/pandoc-1.17.1-2-amd64.deb
+sudo dpkg -i pandoc-xxxxx-amd64.deb
 
 # *** xclip
 # to enable putting things in the paste buffer, e.g. xclip -sel clip < ~/.ssh/id_rsa.pub
@@ -244,20 +244,6 @@ sudo apt-get install tree
 # multiflatform file transfer app
 sudo apt-get install filezilla
 
-# *** Ammonite REPL alternative to scala REPL
-#   http://lihaoyi.github.io/Ammonite/#Ammonite-REPL
-cd ~/Downloads
-wget https://git.io/v0FGO -O amm
-chmod +x amm
-sudo mkdir /opt/ammonite
-sudo mv amm /opt/ammonite/.
-sudo ln -s /opt/ammonite/amm /usr/bin/amm 
-
-#using the Ammonite REPL as a replacement for the standard REPL (also known as the console). Ammonite features pretty printing, loading of dependencies directly from the REPL, multiline input and many more. Add to global.sbt
-#  http://lihaoyi.github.io/Ammonite/ 
-#  http://underscore.io/blog/posts/2015/11/09/sbt-commands.html 
-libraryDependencies += "com.lihaoyi" % "ammonite-repl" % "0.4.8" % "test" cross CrossVersion.full
-initialCommands in (Test, console) := """ammonite.repl.Repl.run("")"""
 
 # Fix menu in window title bar
 # http://askubuntu.com/questions/25785/can-auto-hide-for-the-application-menu-be-turned-off-in-unity
@@ -302,5 +288,33 @@ sudo apt-get install i3lock
 sudo apt-get install i3status
 sudo apt-get install suckless-tools
 sudo apt-get install gnome-settings-daemon
+
+
+## Get old adobe 9 -- the only reader in linux that can view XFA Forms & comments
+# http://askubuntu.com/questions/89127/how-do-i-install-adobe-acrobat-reader-deb-package-downloaded-from-adobe-website
+#  Some background info:
+#      https://www.linux.com/news/3-alternatives-adobe-pdf-reader-linux 
+#      http://askubuntu.com/questions/18495/which-pdf-viewer-would-you-recommend
+#
+#Download Adobe Reader (32-bit), from Adobe site:
+cd ~/Downloads
+wget ftp://ftp.adobe.com/pub/adobe/reader/unix/9.x/9.5.5/enu/AdbeRdr9.5.5-1_i386linux_enu.deb
+#    Check MD5SUM after downloading, input
+md5sum AdbeRdr9.5.5-1_i386linux_enu.deb
+#    the ouput should be
+#    88036c68998d565c4365e2ad89b04d51 AdbeRdr9.5.5-1_i386linux_enu.deb
+sudo dpkg -i --force-architecture AdbeRdr9.5.5-1_i386linux_enu.deb
+sudo apt-get -f install
+#    Add the missing 32-bit libraries: (skip this step for 32-bit)
+sudo apt-get install libxml2:i386 lib32stdc++6
+#    (OPTIONAL) Run for first time, to get icon in Unity menu bar.
+#    acroread <path>/<MyDocument>.pdf
+
+
+## Make java plugin available in Firefox:
+cd /usr/lib/firefox-addons/plugins/
+sudo ln -s /usr/lib/jvm/oracle_jdk8/jre/lib/amd64/libnpjp2.so .
+
+
 
 
