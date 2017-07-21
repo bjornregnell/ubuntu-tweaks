@@ -87,3 +87,4 @@ apm install language-scala
 apm install language-latex
 
 sudo sh -c 'echo "bjornr  ALL=NOPASSWD: /usr/sbin/pm-suspend" >> /etc/sudoers'
+sudo sh -c 'echo "bjornr  ALL=NOPASSWD: /usr/sbin/pm-reboot" >> /etc/sudoers'
