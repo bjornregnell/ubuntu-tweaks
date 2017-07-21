@@ -152,6 +152,20 @@ function gic() { echo git commit -m "$@"; git commit -m "$@"; }
 function gica() { echo git commit -am "$@"; git commit -am "$@"; }
 function gipp() { echo git pull; git pull; echo git push "$@"; git push "$@"; }
 
-# alias for sleep
-alias z="echo 'sudo pm-suspend-hybrid'; sudo pm-suspend-hybrid"
-
+# aliases for restart and sleep
+function oms() {
+  read -p "pm-reboot? Type y<ENTER> to continue: " CONT;
+  if [ "$CONT" = "y" ]; then
+    xvkbd -window Firefox -text "\Cq" && sudo reboot;
+  else
+    echo "Abort.";
+  fi
+}
+function z() {
+  read -p "pm-suspend-hybrid? Type y<ENTER> to continue: " CONT;
+  if [ "$CONT" = "y" ]; then
+    xvkbd -window Firefox -text "\Cq" && sudo pm-suspend-hybrid;
+  else
+    echo "Abort.";
+  fi
+}
