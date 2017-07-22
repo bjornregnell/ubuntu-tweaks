@@ -4,7 +4,7 @@
 sudo apt install unity-tweak-tool
 
 # to get ms fonts etc:
-sudo apt install ubuntu-restricted-extras  
+sudo apt install ubuntu-restricted-extras
 # after above ^ scroll down and hit tab until ok is red then press enter
 
 sudo apt install libavcodec-extra  # was not needed
@@ -16,14 +16,14 @@ sudo apt-get install gksu
 # http://stackoverflow.com/questions/19109542/installing-latest-version-of-git-in-ubuntu
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
-sudo apt-get install git  
+sudo apt-get install git
 #https://help.github.com/articles/setting-your-username-in-git/
 git config --global user.name "bjornregnell"
 # http://stackoverflow.com/questions/8588768/git-push-username-password-how-to-avoid
 cd ~                 #Your home directory
 ssh-keygen -t rsa    #Press enter for all values
-# If it is a GitHub repository and you have administrative privileges, 
-# go to settings and click 'add SSH key'. 
+# If it is a GitHub repository and you have administrative privileges,
+# go to settings and click 'add SSH key'.
 # Copy the contents of your ~/.ssh/id_rsa.pub into the field labeled 'Key'.
 # https://help.github.com/articles/changing-a-remote-s-url/
 # http://stackoverflow.com/questions/9717137/displaying-git-branch-name-in-prompt-does-not-work-in-screen
@@ -32,6 +32,7 @@ ssh-keygen -t rsa    #Press enter for all values
 # *** i3  https://i3wm.org/docs/repositories.html
 
 #download keyring by this command in terminal in home:
+
 /usr/lib/apt/apt-helper download-file http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2017.01.02_all.deb keyring.deb SHA256:4c3c6685b1181d83efe3a479c5ae38a2a44e23add55e16a328b8c8560bf05e5f
 
 sudo apt install ./keyring.deb
@@ -48,7 +49,7 @@ sudo apt-get install gnome-settings-daemon
 ## Get old adobe 9 -- the only reader in linux that can view XFA Forms & comments
 # http://askubuntu.com/questions/89127/how-do-i-install-adobe-acrobat-reader-deb-package-downloaded-from-adobe-website
 #  Some background info:
-#      https://www.linux.com/news/3-alternatives-adobe-pdf-reader-linux 
+#      https://www.linux.com/news/3-alternatives-adobe-pdf-reader-linux
 #      http://askubuntu.com/questions/18495/which-pdf-viewer-would-you-recommend
 #
 #Download Adobe Reader (32-bit), from Adobe site:
@@ -81,10 +82,19 @@ sudo add-apt-repository ppa:webupd8team/atom
 sudo apt-get update
 sudo apt-get install atom
 # install packages in atom from terminal
-apm install intellij-darcula-syntax   
+apm install intellij-darcula-syntax
 # in settings -> themes -> Choose a theme set syntax theme to Intellij Darcula
-apm install language-scala 
+apm install language-scala
 apm install language-latex
 
-sudo sh -c 'echo "bjornr  ALL=NOPASSWD: /usr/sbin/pm-suspend" >> /etc/sudoers'
-sudo sh -c 'echo "bjornr  ALL=NOPASSWD: /usr/sbin/pm-reboot" >> /etc/sudoers'
+## add sudo without password for these things:
+sudo -i
+echo "bjornr  ALL=NOPASSWD: /usr/sbin/pm-suspend-hybrid" >> /etc/sudoers
+echo "bjornr  ALL=NOPASSWD: /usr/sbin/pm-suspend" >> /etc/sudoers
+exit
+
+## configure vino for remote desktop access in Ubuntu 16.04
+# https://help.ubuntu.com/community/VNC/Servers
+# https://gist.github.com/samba/69e1ca11f9d04f218b9b
+    # On a Win10 machine: open windows firewall
+    # http://www.configserverfirewall.com/windows-10/enable-remote-desktop-windows-10/
