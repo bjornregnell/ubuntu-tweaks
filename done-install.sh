@@ -98,3 +98,6 @@ exit
 # https://gist.github.com/samba/69e1ca11f9d04f218b9b
     # On a Win10 machine: open windows firewall
     # http://www.configserverfirewall.com/windows-10/enable-remote-desktop-windows-10/
+
+## install qpdfviewer -- good alternative to evince
+sudo apt install qpdfview
