@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+if [ $# -eq 2 ]
+then
+wsA="$1"
+wsB="$2"
+tmp="temporaryWorkspace"
+i3-msg "rename workspace $1 to $tmp; rename workspace $2 to $1; rename workspace $tmp to $2"
+else
+  echo "two arguments must be supplied, to swap 3 and 4 use:"
+  echo "i3-swap 3 4"
+fi
+
