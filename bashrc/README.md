@@ -8,6 +8,6 @@ In particular it includes:
 
 * changes the prompt to something nicer
 
-* includes special coloring in git repos
+* includes coloring in git repos
 
 * some handy aliases/functions
