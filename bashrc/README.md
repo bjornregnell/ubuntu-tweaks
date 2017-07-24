@@ -6,8 +6,8 @@ https://github.com/bjornregnell/ubuntu-tweaks/blob/master/bashrc/.bashrc
 
 In particular it includes:
 
-* changes the prompt to something nicer
+* nicer prompt
 
-* includes coloring in git repos
+* nice coloring in git repos
 
 * some handy aliases/functions
