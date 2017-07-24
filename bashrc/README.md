@@ -1,6 +1,6 @@
 # My tweaks to .bashrc  
 
-Includes the hidden file .bashrc that includes init stuff for bash terminal sessions.
+The hidden file .bashrc here includes init stuff for bash terminal sessions:
 
 https://github.com/bjornregnell/ubuntu-tweaks/blob/master/bashrc/.bashrc
 
