@@ -87,6 +87,15 @@ apm install intellij-darcula-syntax
 apm install language-scala
 apm install language-latex
 
+
+
+# *** JAVA
+# http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt update
+sudo apt install oracle-java8-installer
+sudo apt install oracle-java8-set-default
+
 ## add sudo without password for these things:
 sudo -i
 echo "bjornr  ALL=NOPASSWD: /usr/sbin/pm-suspend-hybrid" >> /etc/sudoers
