@@ -32,6 +32,7 @@ ssh-keygen -t rsa    #Press enter for all values
 # *** i3  https://i3wm.org/docs/repositories.html
 
 #download keyring by this command in terminal in home:
+
 /usr/lib/apt/apt-helper download-file http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2017.01.02_all.deb keyring.deb SHA256:4c3c6685b1181d83efe3a479c5ae38a2a44e23add55e16a328b8c8560bf05e5f
 
 sudo apt install ./keyring.deb
@@ -86,8 +87,6 @@ apm install intellij-darcula-syntax
 apm install language-scala
 apm install language-latex
 
-sudo sh -c 'echo "bjornr  ALL=NOPASSWD: /usr/sbin/pm-suspend" >> /etc/sudoers'
-sudo sh -c 'echo "bjornr  ALL=NOPASSWD: /usr/sbin/pm-reboot" >> /etc/sudoers'
 
 
 # *** JAVA
@@ -96,3 +95,18 @@ sudo add-apt-repository ppa:webupd8team/java
 sudo apt update
 sudo apt install oracle-java8-installer
 sudo apt install oracle-java8-set-default
+
+## add sudo without password for these things:
+sudo -i
+echo "bjornr  ALL=NOPASSWD: /usr/sbin/pm-suspend-hybrid" >> /etc/sudoers
+echo "bjornr  ALL=NOPASSWD: /usr/sbin/pm-suspend" >> /etc/sudoers
+exit
+
+## configure vino for remote desktop access in Ubuntu 16.04
+# https://help.ubuntu.com/community/VNC/Servers
+# https://gist.github.com/samba/69e1ca11f9d04f218b9b
+    # On a Win10 machine: open windows firewall
+    # http://www.configserverfirewall.com/windows-10/enable-remote-desktop-windows-10/
+
+## install qpdfviewer -- good alternative to evince
+sudo apt install qpdfview
