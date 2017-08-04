@@ -88,13 +88,13 @@ apm install language-scala
 apm install language-latex
 
 
-
 # *** JAVA
 # http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt update
 sudo apt install oracle-java8-installer
 sudo apt install oracle-java8-set-default
+
 
 ## add sudo without password for these things:
 sudo -i
@@ -136,9 +136,38 @@ sudo apt-get update
 sudo apt-get install oracle-java8-installer
 sudo apt-get install oracle-java8-set-default
 
+
 # *** sbt  http://www.scala-sbt.org/download.html
 
 echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
 sudo apt-get update
 sudo apt-get install sbt
+
+
+# *** SCALA   check the latest version number here:
+#             http://www.scala-lang.org/download/all.html
+cd ~/Downloads
+wget http://www.scala-lang.org/files/archive/scala-2.12.3.deb
+sudo dpkg -i scala-2.12.3.deb
+# the above command will install some shell scripts to run scala stuff in /usr/bin/scala*
+ls /usr/bin/scala*
+# the scala libs will be placed here:
+whereis scala
+# scala: /usr/bin/scala /usr/bin/X11/scala /usr/share/scala /usr/share/man/man1/scala.1.gz
+# add SCALA_HOME to your ~/.profile if it is not already there:
+echo 'export SCALA_HOME=/usr/share/scala' >>~/.profile
+
+# *** git
+# http://stackoverflow.com/questions/19109542/installing-latest-version-of-git-in-ubuntu
+sudo add-apt-repository ppa:git-core/ppa && sudo apt-get update
+sudo apt-get install git
+# http://stackoverflow.com/questions/8588768/git-push-username-password-how-to-avoid
+# https://help.github.com/articles/changing-a-remote-s-url/
+# http://stackoverflow.com/questions/9717137/displaying-git-branch-name-in-prompt-does-not-work-in-screen
+
+
+# Kojo --- check latest version number here: http://www.kogics.net/kojo-download
+cd ~/Downloads
+wget https://bitbucket.org/lalit_pant/kojo/downloads/kojoInstall-2.4.10.jar
+java -jar kojoInstall-2.4.10.jar
