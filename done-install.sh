@@ -108,5 +108,15 @@ exit
     # On a Win10 machine: open windows firewall
     # http://www.configserverfirewall.com/windows-10/enable-remote-desktop-windows-10/
 
+
+# *** Latex
+# https://help.ubuntu.com/community/LaTeX
+sudo apt-get install texlive-full
+sudo apt-get install myspell-sv-se
+
+# https://launchpad.net/~texworks/+archive/ubuntu/stable
+sudo add-apt-repository ppa:texworks/stable && sudo apt-get update
+sudo apt-get install texworks
+
 ## install qpdfviewer -- good alternative to evince
 sudo apt install qpdfview
