@@ -1,12 +1,12 @@
-#  UI Tweaks: 
-#   System settings -> Appearance -> Behaviour -> 
+#  UI Tweaks:
+#   System settings -> Appearance -> Behaviour ->
 #       TICK: in the widow's title
 #       Enable workspaces
 #       Add desktop icon
 #  Security & Privacy: Untick Require my password
 #  Brightness & Lock: Turn screen off when active: Never
 
-# https://fixubuntu.com/ 
+# https://fixubuntu.com/
 # http://askubuntu.com/questions/760204/how-to-remove-the-unity-amazon-package-in-16-04
 cp /usr/share/applications/ubuntu-amazon-default.desktop ~/.local/share/applications/ubuntu-amazon-default.desktop
 echo Hidden=true >> ~/.local/share/applications/ubuntu-amazon-default.desktop
@@ -26,7 +26,7 @@ sudo apt install unity-tweak-tool
 # Add non-free extra codecs and fonts:
 sudo apt install ubuntu-restricted-extras
 # then: scroll down and hit tab until ok is red then press enter
-sudo apt install libavcodec-extra 
+sudo apt install libavcodec-extra
 # then: press enter on ok (perhaps need to use tab to get there)
 
 # install gksudo to enable sudo with window apps:
@@ -41,6 +41,11 @@ sudo apt-get install xclip
 sudo apt-get install tree
 
 
+# to make sure make is of latest version:
+sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+sudo apt update
+sudo apt install ubuntu-make
+
 # *** JAVA
 # http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html
 sudo add-apt-repository ppa:webupd8team/java
@@ -48,13 +53,9 @@ sudo apt update
 sudo apt install oracle-java8-installer
 sudo apt-get install oracle-java8-set-default
 
-# to make sure make is of latest version:
-sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
-sudo apt update
-sudo apt install ubuntu-make
 
 
-# *** SCALA   check the latest version number here: 
+# *** SCALA   check the latest version number here:
 #             http://www.scala-lang.org/download/all.html
 cd ~/Downloads
 wget http://www.scala-lang.org/files/archive/scala-2.11.8.deb
@@ -71,7 +72,7 @@ echo 'export SCALA_HOME=/usr/share/scala' >>~/.profile
 
 
 # *** sbt Scala Build Tool
-# http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Linux.html 
+# http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Linux.html
 echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
 sudo apt-get update
@@ -79,12 +80,12 @@ sudo apt-get install sbt
 sbt   # this will take long time the first time.....
 
 
- 
+
 # *** git
 # http://stackoverflow.com/questions/19109542/installing-latest-version-of-git-in-ubuntu
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
-sudo apt-get install git  
+sudo apt-get install git
 # http://stackoverflow.com/questions/8588768/git-push-username-password-how-to-avoid
 # https://help.github.com/articles/changing-a-remote-s-url/
 # http://stackoverflow.com/questions/9717137/displaying-git-branch-name-in-prompt-does-not-work-in-screen
@@ -115,7 +116,7 @@ sudo apt-get install texworks
 cd ~/Downloads
 mkdir scalaide
 cd scalaide
-wget http://fileadmin.cs.lth.se/pgk/scalaide441mars2-linux.gtk.x86_64.tar.gz  
+wget http://fileadmin.cs.lth.se/pgk/scalaide441mars2-linux.gtk.x86_64.tar.gz
 tar -zxvf scalaide*.tar.gz
 sudo mv scalaide441mars2 /opt/scalaide441mars2
 echo "[Desktop Entry]
@@ -130,14 +131,14 @@ Categories=Development;IDE;
 Name[en]=Scala IDE 4.4.1 Mars 2" > scalaide.desktop
 sudo mv scalaide.desktop /usr/share/applications/.
 cd ..
-rm -r scalaide 
+rm -r scalaide
 
 
 # Kojo --- check latest version number here: http://www.kogics.net/kojo-download
 cd ~/Downloads
 wget https://bitbucket.org/lalit_pant/kojo/downloads/kojoInstall-2.4.09.jar
 wget http://kogics.wdfiles.com/local--files/kojo-silent-install/auto-install.xml
-sed -i -e 's#/home/lalit/Kojo2.auto#/opt/kojo#g' auto-install.xml 
+sed -i -e 's#/home/lalit/Kojo2.auto#/opt/kojo#g' auto-install.xml
 sudo java -jar kojoInstall-2.4.09.jar auto-install.xml
 echo "[Desktop Entry]
 Name=Kojo
@@ -158,7 +159,7 @@ sudo add-apt-repository ppa:mmk2410/intellij-idea-community
 sudo apt-get update
 # Select Scala plugin on first run
 # https://youtrack.jetbrains.com/issue/IDEA-78860
-# Keyboard input sometimes is blocked when IBus is active 
+# Keyboard input sometimes is blocked when IBus is active
 export IBUS_ENABLE_SYNC_MODE=1
 
 
@@ -184,5 +185,3 @@ wget https://github.com/bjornregnell/ubuntu-tweaks/raw/master/ubuntu-16.04-tweak
 wget https://github.com/bjornregnell/ubuntu-tweaks/raw/master/ubuntu-16.04-tweaks/introprog-vm/i3/i3status.conf
 
 # installera smartgit eller gitkraken ???
-
-
