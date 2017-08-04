@@ -101,3 +101,25 @@ exit
 
 ## install qpdfviewer -- good alternative to evince
 sudo apt install qpdfview
+
+# *** xclip ***
+# to enable putting things in the paste buffer, e.g. xclip -sel clip < ~/.ssh/id_rsa.pub
+sudo apt-get install xclip
+
+# *** tree  *** to enable tree listing in terminal
+sudo apt-get install tree
+
+#
+
+# *** java oracles JDK8  # press TAB to get to YES in EUAL agreement then ENTER
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+sudo apt-get install oracle-java8-set-default
+
+# *** sbt  http://www.scala-sbt.org/download.html
+
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+sudo apt-get update
+sudo apt-get install sbt
