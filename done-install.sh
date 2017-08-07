@@ -171,3 +171,17 @@ sudo apt-get install git
 cd ~/Downloads
 wget https://bitbucket.org/lalit_pant/kojo/downloads/kojoInstall-2.4.10.jar
 java -jar kojoInstall-2.4.10.jar
+
+
+# How to mount Dlink nas bithinken
+# https://wiki.ubuntu.com/MountWindowsSharesPermanently
+# https://wiki.samba.org/index.php/Mounting_samba_shares_from_a_unix_client
+# https://askubuntu.com/questions/525243/why-do-i-get-wrong-fs-type-bad-option-bad-superblock-error
+sudo apt-get install cifs-utils
+sudo mkdir /mnt/bithinken
+# Then when you only want to mount ince:
+sudo mount -t cifs -o user=admin //192.168.0.32/Volume_1 /mnt/bithinken
+# Or append this line to /etc/fstab:
+sudo sh -c "echo '//192.168.0.32/Volume_1  /mnt/bithinken  cifs  guest,uid=1000,iocharset=utf8  0' >> /etc/fstab"
+# Colors in ls get strange beacuse:
+#  https://unix.stackexchange.com/questions/94498/what-causes-this-green-background-in-ls-output
