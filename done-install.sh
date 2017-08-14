@@ -185,3 +185,43 @@ sudo mount -t cifs -o user=admin //192.168.0.32/Volume_1 /mnt/bithinken
 sudo sh -c "echo '//192.168.0.32/Volume_1  /mnt/bithinken  cifs  guest,uid=1000,iocharset=utf8  0' >> /etc/fstab"
 # Colors in ls get strange beacuse:
 #  https://unix.stackexchange.com/questions/94498/what-causes-this-green-background-in-ls-output
+
+
+# How to install printer BROTHER dcp9055cdn
+#
+#
+http://support.brother.com/g/s/id/linux/en/instruction_prn1a.html?c=us_ot&lang=en&redirect=on
+http://support.brother.com/g/s/id/linux/en/download_prn.html#DCP-9055CDN
+http://www.brother.com/cgi-bin/agreement/agreement.cgi?dlfile=http://www.brother.com/pub/bsc/linux/dlf/dcp9055cdnlpr-1.1.1-5.i386.deb&lang=English_lpr
+http://www.brother.com/cgi-bin/agreement/agreement.cgi?dlfile=http://www.brother.com/pub/bsc/linux/dlf/dcp9055cdncupswrapper-1.1.1-5.i386.deb&lang=English
+_gpl
+http://askubuntu.com/questions/460729/duplex-double-sided-print-not-available
+
+sudo ln -s /etc/init.d/cups /etc/init.d/lpd  # is this really needed???
+
+sudo mkdir -p /var/spool/lpd/dcp9055cdn
+
+sudo dpkg -i --force-all dcp9055cdnlpr-1.1.1-5.i386.deb
+
+
+sudo dpkg  -i  --force-all dcp9055cdncupswrapper-1.1.1-5.i386.deb
+
+dpkg  -l  |  grep  Brother
+
+# append this to
+gksudo gedit /etc/printcap
+
+DCP9055CDN:\
+        :mx=0:\
+        :sd=/var/spool/lpd/dcp9055cdn:\
+        :sh:\
+        :rm=192.168.0.15\
+        :rp=lp\
+        :if=/usr/local/Brother/Printer/dcp9055cdn/lpd/
+
+# Open Printers in dash and select properties
+# Set device URI to:
+dnssd://Brother%20DCP-9055CDN._pdl-datastream._tcp.local/
+# If you press Change... the above should be set if you choose network printer on specific IP address
+# Set make and model to
+Brother DCP-9055CDN CUPS
