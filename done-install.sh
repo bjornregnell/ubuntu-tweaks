@@ -225,3 +225,8 @@ dnssd://Brother%20DCP-9055CDN._pdl-datastream._tcp.local/
 # If you press Change... the above should be set if you choose network printer on specific IP address
 # Set make and model to
 Brother DCP-9055CDN CUPS
+
+
+# Install this tpo access Samsung external SSD with exfat file system
+#  https://askubuntu.com/questions/364270/mount-unknown-filesystem-exfat
+sudo apt-get install exfat-fuse exfat-utils
