@@ -249,14 +249,14 @@ sudo apt-get install pdf-presenter-console
 sudo dmesg | grep tty
 #[    0.000000] console [tty0] enabled
 #[    0.886214] serial8250: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
-sudo ln -s /dev/ttyS0 /dev/modem
+# sudo ln -s /dev/ttyS0 /dev/modem
 
 # Permamently unlock sim card:
 # http://tech.valgog.com/2011/10/how-to-remove-sim-card-pin-from-your.html
 # Did not use answer by herr-biber at  https://askubuntu.com/questions/209590/how-to-disable-popup-sim-pin-unlock-required
 sudo apt-get install gsm-utils
 ## DID NOT TRY THIS AS mmcli below worked: sudo gsmctl -d /dev/ttyACM0 -o unlock sc all 1234
-## INSTEAD USED THIS ANSWER BY Jan Kozusznik :
+## INSTEAD OF gsmctl USED THIS ANSWER BY Jan Kozusznik :
 mmcli -L
 #Found 1 modems:
 #	/org/freedesktop/ModemManager1/Modem/3 [Sierra] MBIM [1199:9079]
@@ -306,3 +306,4 @@ mmcli -m "3"
 #   Bearers  |          paths: 'none'
 sudo mmcli -i "/org/freedesktop/ModemManager1/SIM/3" --pin="NNNN" --disable-pin # NNNN is PIN
 #successfully disabled PIN code request in the SIM
+#If Mobile Broadband is inactive afte sleep, I got it to work by toggling activation on/off/on 
