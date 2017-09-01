@@ -153,7 +153,7 @@ function gica() { echo git commit -am "$@"; git commit -am "$@"; }
 function gipp() { echo git pull; git pull; echo git push "$@"; git push "$@"; }
 
 # aliases for restart and sleep
-function oms() {
+function reboot() {
   read -p "pm-reboot? Type y<ENTER> to continue: " CONT;
   if [ "$CONT" = "y" ]; then
     xvkbd -window Firefox -text "\Cq" && sudo reboot;
@@ -169,3 +169,4 @@ function z() {
     echo "Abort.";
   fi
 }
+export LUCATID=IfYouAreEmployedAtLUGiveYourLucatIDHere
