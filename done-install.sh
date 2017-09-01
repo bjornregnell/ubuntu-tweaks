@@ -185,3 +185,125 @@ sudo mount -t cifs -o user=admin //192.168.0.32/Volume_1 /mnt/bithinken
 sudo sh -c "echo '//192.168.0.32/Volume_1  /mnt/bithinken  cifs  guest,uid=1000,iocharset=utf8  0' >> /etc/fstab"
 # Colors in ls get strange beacuse:
 #  https://unix.stackexchange.com/questions/94498/what-causes-this-green-background-in-ls-output
+
+
+# How to install printer BROTHER dcp9055cdn
+#
+#
+http://support.brother.com/g/s/id/linux/en/instruction_prn1a.html?c=us_ot&lang=en&redirect=on
+http://support.brother.com/g/s/id/linux/en/download_prn.html#DCP-9055CDN
+http://www.brother.com/cgi-bin/agreement/agreement.cgi?dlfile=http://www.brother.com/pub/bsc/linux/dlf/dcp9055cdnlpr-1.1.1-5.i386.deb&lang=English_lpr
+http://www.brother.com/cgi-bin/agreement/agreement.cgi?dlfile=http://www.brother.com/pub/bsc/linux/dlf/dcp9055cdncupswrapper-1.1.1-5.i386.deb&lang=English
+_gpl
+http://askubuntu.com/questions/460729/duplex-double-sided-print-not-available
+
+sudo ln -s /etc/init.d/cups /etc/init.d/lpd  # is this really needed???
+
+sudo mkdir -p /var/spool/lpd/dcp9055cdn
+
+sudo dpkg -i --force-all dcp9055cdnlpr-1.1.1-5.i386.deb
+
+
+sudo dpkg  -i  --force-all dcp9055cdncupswrapper-1.1.1-5.i386.deb
+
+dpkg  -l  |  grep  Brother
+
+# append this to
+gksudo gedit /etc/printcap
+
+DCP9055CDN:\
+        :mx=0:\
+        :sd=/var/spool/lpd/dcp9055cdn:\
+        :sh:\
+        :rm=192.168.0.15\
+        :rp=lp\
+        :if=/usr/local/Brother/Printer/dcp9055cdn/lpd/
+
+# Open Printers in dash and select properties
+# Set device URI to:
+dnssd://Brother%20DCP-9055CDN._pdl-datastream._tcp.local/
+# If you press Change... the above should be set if you choose network printer on specific IP address
+# Set make and model to
+Brother DCP-9055CDN CUPS
+
+
+# Install this tpo access Samsung external SSD with exfat file system
+#  https://askubuntu.com/questions/364270/mount-unknown-filesystem-exfat
+sudo apt-get install exfat-fuse exfat-utils
+
+
+## Compiz config manager to tweak unity etc
+sudo apt-get install compizconfig-settings-manager
+sudo apt-get install compiz-plugins
+
+# Add put on next output shortcut to place window on other monitor
+# https://askubuntu.com/questions/22207/quickly-place-a-window-to-another-screen-using-only-the-keyboard
+
+# install pdf presenter console pdfpc
+# https://pdfpc.github.io/
+sudo apt-get install pdf-presenter-console
+
+
+# Find out which device is the built in wireless modem:
+#http://www.informit.com/articles/article.aspx?p=1161217&seqNum=9
+sudo dmesg | grep tty
+#[    0.000000] console [tty0] enabled
+#[    0.886214] serial8250: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+# sudo ln -s /dev/ttyS0 /dev/modem
+
+# Permamently unlock sim card:
+# http://tech.valgog.com/2011/10/how-to-remove-sim-card-pin-from-your.html
+# Did not use answer by herr-biber at  https://askubuntu.com/questions/209590/how-to-disable-popup-sim-pin-unlock-required
+sudo apt-get install gsm-utils
+## DID NOT TRY THIS AS mmcli below worked: sudo gsmctl -d /dev/ttyACM0 -o unlock sc all 1234
+## INSTEAD OF gsmctl USED THIS ANSWER BY Jan Kozusznik :
+mmcli -L
+#Found 1 modems:
+#	/org/freedesktop/ModemManager1/Modem/3 [Sierra] MBIM [1199:9079]
+mmcli -m "3"
+# /org/freedesktop/ModemManager1/Modem/3 (device id '47f3282116f24675287b307ba2193a006e5e9526')
+#   -------------------------
+#   Hardware |   manufacturer: 'Sierra'
+#            |          model: 'MBIM [1199:9079]'
+#            |       revision: 'SWI9X30C_02.20.03.00'
+#            |      supported: 'gsm-umts, lte'
+#            |        current: 'gsm-umts, lte'
+#            |   equipment id: '014582005767612'
+#   -------------------------
+#   System   |         device: '/sys/devices/pci0000:00/0000:00:14.0/usb1/1-6'
+#            |        drivers: 'cdc_mbim'
+#            |         plugin: 'Sierra'
+#            |   primary port: 'cdc-wdm0'
+#            |          ports: 'wwp0s20f0u6i12 (net), cdc-wdm0 (mbim)'
+#   -------------------------
+#   Numbers  |           own : 'unknown'
+#   -------------------------
+#   Status   |           lock: 'none'
+#            | unlock retries: 'sim-pin2 (3)'
+#            |          state: 'disabled'
+#            |    power state: 'low'
+#            |    access tech: 'unknown'
+#            | signal quality: '0' (cached)
+#   -------------------------
+#   Modes    |      supported: 'allowed: 3g, 4g; preferred: none'
+#            |        current: 'allowed: 3g, 4g; preferred: none'
+#   -------------------------
+#   Bands    |      supported: 'unknown'
+#            |        current: 'unknown'
+#   -------------------------
+#   IP       |      supported: 'ipv4, ipv6, ipv4v6'
+#   -------------------------
+#   3GPP     |           imei: '014582005767612'
+#            |  enabled locks: 'sim, fixed-dialing'
+#            |    operator id: 'unknown'
+#            |  operator name: 'unknown'
+#            |   subscription: 'unknown'
+#            |   registration: 'unknown'
+#   -------------------------
+#   SIM      |           path: '/org/freedesktop/ModemManager1/SIM/3'
+#
+#   -------------------------
+#   Bearers  |          paths: 'none'
+sudo mmcli -i "/org/freedesktop/ModemManager1/SIM/3" --pin="NNNN" --disable-pin # NNNN is PIN
+#successfully disabled PIN code request in the SIM
+#If Mobile Broadband is inactive afte sleep, I got it to work by toggling activation on/off/on 
