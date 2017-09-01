@@ -1,0 +1,13 @@
+# inspired by:
+# https://coderwall.com/p/grmruq/git-status-on-all-repos-in-folder
+# https://stackoverflow.com/questions/2016901/viewing-unpushed-git-commits
+# https://stackoverflow.com/questions/11981716/how-to-quickly-find-all-git-repos-under-a-directory
+if [ "$#" -eq  "0" ]
+  then
+    GITDIR=~/git
+else
+    GITDIR=$1
+fi
+
+find $GITDIR -maxdepth 5 -mindepth 1 -type d -name .git -exec sh -c \
+'(echo {} && cd {}/..  && git status -s && git log --branches --not --remotes --simplify-by-decoration --decorate --oneline && echo)' \;
