@@ -1,0 +1,10 @@
+# run bredbanskollen and append to file an the appen newline
+
+bbk_cli | tee -a /home/bjornr/bbk_cli.log
+echo >> /home/bjornr/bbk_cli.log
+
+# the bbk_cli deb can be downloaded from:
+# wget https://beta1.bredbandskollen.se/download/bbk-cli_0.3.8_amd64.deb
+# and installed by:
+# sudo dpkg -i bbk-cli_0.3.8_amd64.deb
+# more information (in swedish):  https://support.bredbandskollen.se/support/solutions/articles/1000246417-bredbandskollen-cli
