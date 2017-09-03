@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# https://stackoverflow.com/questions/3258243/check-if-pull-needed-in-git
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+[ $(git rev-parse HEAD) = $(git ls-remote $(git rev-parse --abbrev-ref @{u} | \
+sed 's/\// /g') | cut -f1) ] && echo -e "${GREEN}Up-to-date.${NC}" || echo -e "${RED}NOT UP-TO-DATE. Pull needed!${NC}"
