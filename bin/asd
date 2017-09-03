@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+if [ ! $# -eq 1 ]
+then
+        tree -d ~/asd
+fi
+
+case "$1" in
+'push') echo "rsync -auvh --progress -e ssh ~/asd/ $LUCATID@login.cs.lth.se:/home/$LUCATID/asd/"
+    # -auvh archive update verbose human-readable
+    rsync -auvh --progress -e ssh ~/asd/ $LUCATID@login.cs.lth.se:/home/$LUCATID/asd/
+    ;;
+# Count number of words matches
+'pull') echo "rsync -auvh --progress -e ssh $LUCATID@login.cs.lth.se:/home/$LUCATID/asd/ ~/asd/"
+    # -auvh archive update verbose human-readable
+    rsync -auvh --progress -e ssh $LUCATID@login.cs.lth.se:/home/$LUCATID/asd/ ~/asd/
+    ;;
+'dry') echo "*** asd dry-run pull"
+   echo "rsync --dry-run -auvh --progress -e ssh  $LUCATID@login.cs.lth.se:/home/$LUCATID/asd/ ~/asd/ "
+   rsync --dry-run -auvh --progress -e ssh  $LUCATID@login.cs.lth.se:/home/$LUCATID/asd/ ~/asd/
+   echo "*** asd dry-run push"
+      echo "rsync --dry-run --progress -e ssh ~/asd/ $LUCATID@login.cs.lth.se:/home/$LUCATID/asd/"
+      rsync --dry-run  -auvh --progress -e ssh ~/asd/ $LUCATID@login.cs.lth.se:/home/$LUCATID/asd/
+   ;;
+*) echo "usage: asd dry | pull | push"
+   ;;
+esac
