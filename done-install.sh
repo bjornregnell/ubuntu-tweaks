@@ -306,4 +306,31 @@ mmcli -m "3"
 #   Bearers  |          paths: 'none'
 sudo mmcli -i "/org/freedesktop/ModemManager1/SIM/3" --pin="NNNN" --disable-pin # NNNN is PIN
 #successfully disabled PIN code request in the SIM
-#If Mobile Broadband is inactive afte sleep, I got it to work by toggling activation on/off/on 
+#If Mobile Broadband is inactive afte sleep, I got it to work by toggling activation on/off/on
+
+
+# install chrome
+#  https://askubuntu.com/questions/510056/how-to-install-google-chrome
+
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+
+sudo apt-get update
+sudo apt-get install google-chrome-stable
+
+
+# fix dock when lid closed?
+# https://askubuntu.com/questions/15520/how-can-i-tell-ubuntu-to-do-nothing-when-i-close-my-laptop-lid
+#   IgnoreLid=true in /etc/UPower/UPower.conf
+#
+#       In terminal do:
+#
+       sudoedit /etc/UPower/UPower.conf
+#
+#       Change IgnoreLid to IgnoreLid=true
+#       Save and exit the editor.
+#
+#       Restart the UPower service with:
+#
+#       service upower restart
