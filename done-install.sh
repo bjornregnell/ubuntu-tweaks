@@ -334,3 +334,43 @@ sudo apt-get install google-chrome-stable
 #       Restart the UPower service with:
 #
 #       service upower restart
+
+
+# install scalaide
+cd ~/Downloads
+
+wget http://downloads.typesafe.com/scalaide-pack/4.6.1-vfinal-neon-212-20170609/scala-SDK-4.6.1-vfinal-2.12-linux.gtk.x86_64.tar.gz
+
+tar -zxvf scala-SDK-4.6.1-vfinal-2.12-linux.gtk.x86_64.tar.gz
+
+sudo mv ~/Downloads/eclipse /opt/scalaide46
+
+cat > ~/Desktop/scalaide.desktop <<EOF
+[Desktop Entry]
+Name=ScalaIDE
+Type=Application
+Exec=env UBUNTU_MENUPROXY=0 scalaide
+Terminal=false
+Icon=scalaide
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=ScalaIDE
+EOF
+
+chmod +x ~/Desktop/scalaide.desktop
+
+sudo ln -s /opt/scalaide46/eclipse /usr/local/bin/scalaide
+
+sudo desktop-file-install ~/Desktop/scalaide.desktop
+
+sudo cp /opt/scalaide46/icon.xpm /usr/share/pixmaps/scalaide.xpm
+
+
+# Install Intellij
+
+sudo add-apt-repository ppa:mmk2410/intellij-idea-community
+sudo apt-get update
+sudo apt-get install intellij-idea-community
+sudo apt-get upgrade
+sudo ln -s /opt/intellij-idea-community/bin/idea.sh /usr/local/bin/idea
