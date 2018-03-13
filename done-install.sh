@@ -374,3 +374,11 @@ sudo apt-get update
 sudo apt-get install intellij-idea-community
 sudo apt-get upgrade
 sudo ln -s /opt/intellij-idea-community/bin/idea.sh /usr/local/bin/idea
+
+
+# install autorandr and poll-xrandr
+see separate file
+
+# install vscode using deb from homepage
+# https://code.visualstudio.com/Download
+# inside vscode install scala syntax by Dalton Jorge
