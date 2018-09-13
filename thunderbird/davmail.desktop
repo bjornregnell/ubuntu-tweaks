@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/bin/davmail
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_GB]=davmail
+Name=davmail
+Comment[en_GB]=Exchange gateway for emails and calendars
+Comment=Exchange gateway for emails and calendars

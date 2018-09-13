@@ -12,7 +12,7 @@
 
 * Add AddOn TT Deep Dark
 
-* In addons manager clock "Lnaguages" to the right and search for "Svenska" in the search box and click install on "Svenska Language Pack" and "Swedish "
+* In addons manager click "Languages" to the right and search for "Svenska" in the search box and click install on "Svenska Language Pack" and "Swedish "
 
 
 ### Configure Exquilla email
@@ -61,13 +61,14 @@ The run gdebi from dash menu and select davmail_4.8.0.3-2488-1_all.deb
   * rightclick on the tray icon and select settings
   * In the Main tab:
     * In the OWA field: https://webmail.lu.se/owa/
-    * Only tick CalDav and set port to 10080
+    * Only tick CalDav and set http port to 10080
   * In the Advanced Tab: only tick these items
     * Display startup banner
     * IMAP auto expunge
     * Use Exange message size in IMAP
     * Enable KeepAlive
     * SMTP save in sent
+    * Caldav auomatic scheduling ???
    * Click on the Save button
 
 * In Thunderbird: rightclick in the calendar left field an choose "New calendar"
