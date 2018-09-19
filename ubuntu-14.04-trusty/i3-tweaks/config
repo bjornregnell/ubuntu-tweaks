@@ -23,8 +23,13 @@ font pango:Ubuntu Medium Bold 11
 
 # class                 border  backgr. text    indicator child_border
 #client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused          #4c7899 #f06000 #ffffff #2e9ef4   #285577
+# orange window focused:
+#client.focused          #4c7899 #f06000 #ffffff #2e9ef4   #285577
+# green window focused:
+client.focused          #4c7899 #20b000 #ffffff #2e9ef4   #285577
+
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
@@ -178,12 +183,25 @@ exec --no-startup-id xsetroot -solid "#000000"
 #  https://faq.i3wm.org/question/115/how-to-configure-gtk-theme-support/%3C/p%3E.html
 exec gnome-settings-daemon
 
-# start calendar exchnage server DavMail:
+# start calendar exchange server DavMail:
 exec --no-startup-id davmail
 
+# start syncthing gui with tray icon
+exec --no-startup-id syncthing-gtk
+
+workspace 1 output HDMI1
+workspace 2 output HDMI1
+workspace 3 output HDMI1
+workspace 4 output HDMI1
+workspace 9 output HDMI2
+workspace 10 output VGA1
+
+# Assign atom to workspace 3
+assign [class="atom"] 3
+
+exec --no-startup-id i3-msg 'workspace 9; exec remmina'
+exec --no-startup-id i3-msg 'workspace 10; exec gnome-system-monitor'
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
 exec --no-startup-id i3-msg 'workspace 2; exec thunderbird'
-exec --no-startup-id i3-msg 'workspace 3; exec nautilus --no-desktop'
-exec --no-startup-id i3-msg 'workspace 4; exec gnome-terminal; exec atom'
-exec --no-startup-id i3-msg 'workspace 10; exec remmina -c ~/.remmina/1441451608754.remmina'
-exec --no-startup-id i3-msg 'workspace 10; exec gnome-system-monitor; workspace 4'
+exec --no-startup-id i3-msg 'workspace 4; exec nautilus --no-desktop'
+exec --no-startup-id i3-msg 'workspace 3; exec atom'
