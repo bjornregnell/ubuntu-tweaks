@@ -132,7 +132,7 @@ sudo apt install hunspell hunspell-sv
 
 # https://launchpad.net/~texworks/+archive/ubuntu/stable
 sudo add-apt-repository ppa:texworks/stable
-sudo apt-get update
-sudo apt-get install texworks
+sudo apt update
+sudo apt install texworks
 # put your custom latex .sty files here:
 # http://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te
