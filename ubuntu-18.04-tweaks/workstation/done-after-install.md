@@ -136,3 +136,6 @@ sudo apt update
 sudo apt install texworks
 # put your custom latex .sty files here:
 # http://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te
+
+# allow more tweaks of ubuntu gnome shell
+sudo apt install gnome-tweak-tool
