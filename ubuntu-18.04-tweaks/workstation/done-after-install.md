@@ -139,3 +139,13 @@ sudo apt install texworks
 
 # allow more tweaks of ubuntu gnome shell
 sudo apt install gnome-tweak-tool
+
+# fix calendar Ligthning in Thunderbird:
+# https://askubuntu.com/questions/1084059/latest-update-to-thunderbird-60-2-1-on-18-04-lightning-calendar-missing
+# 1. remove the lightning add-on in Thunderbird;
+# 2. exit from Thunderbird;
+# 3. install xul-ext-lightning package with
+# 4. sudo apt install xul-ext-lightning
+# 5. restart Thunderbird.
+
+sudo apt install xul-ext-lightning
