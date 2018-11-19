@@ -149,3 +149,7 @@ sudo apt install gnome-tweak-tool
 # 5. restart Thunderbird.
 
 sudo apt install xul-ext-lightning
+
+# ban evil login attempts:
+# https://hostadvice.com/how-to/how-to-setup-fail2ban-on-your-ubuntu-18-04-vps-server-or-dedicated-server/
+sudo apt install fail2ban
