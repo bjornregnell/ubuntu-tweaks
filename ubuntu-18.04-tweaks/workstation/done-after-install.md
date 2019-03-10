@@ -132,7 +132,24 @@ sudo apt install hunspell hunspell-sv
 
 # https://launchpad.net/~texworks/+archive/ubuntu/stable
 sudo add-apt-repository ppa:texworks/stable
-sudo apt-get update
-sudo apt-get install texworks
+sudo apt update
+sudo apt install texworks
 # put your custom latex .sty files here:
 # http://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te
+
+# allow more tweaks of ubuntu gnome shell
+sudo apt install gnome-tweak-tool
+
+# fix calendar Ligthning in Thunderbird:
+# https://askubuntu.com/questions/1084059/latest-update-to-thunderbird-60-2-1-on-18-04-lightning-calendar-missing
+# 1. remove the lightning add-on in Thunderbird;
+# 2. exit from Thunderbird;
+# 3. install xul-ext-lightning package with
+# 4. sudo apt install xul-ext-lightning
+# 5. restart Thunderbird.
+
+sudo apt install xul-ext-lightning
+
+# ban evil login attempts:
+# https://hostadvice.com/how-to/how-to-setup-fail2ban-on-your-ubuntu-18-04-vps-server-or-dedicated-server/
+sudo apt install fail2ban
