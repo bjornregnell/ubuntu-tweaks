@@ -62,6 +62,10 @@ sudo add-apt-repository ppa:nilarimogard/webupd8
 sudo apt update
 sudo apt install syncthing-gtk
 
+# fix filewatcher for syncthing
+# https://docs.syncthing.net/users/faq.html#inotify-limits
+echo "fs.inotify.max_user_watches=204800" | sudo tee -a /etc/sysctl.conf
+
 # install atom
 cd ~/Downloads
 wget -O atom-amd64.deb https://atom.io/download/deb
@@ -153,3 +157,11 @@ sudo apt install xul-ext-lightning
 # ban evil login attempts:
 # https://hostadvice.com/how-to/how-to-setup-fail2ban-on-your-ubuntu-18-04-vps-server-or-dedicated-server/
 sudo apt install fail2ban
+sudo snap install --classic vscode
+
+# extra fonts and codecs
+sudo apt install libdvdnav4 libdvdread4 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libdvd-pkg
+sudo apt install ubuntu-restricted-extras
+
+# video player VLC
+sudo snap install vlc
