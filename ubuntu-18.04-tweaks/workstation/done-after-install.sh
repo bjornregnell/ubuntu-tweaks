@@ -165,3 +165,12 @@ sudo apt install ubuntu-restricted-extras
 
 # video player VLC
 sudo snap install vlc
+
+# email client evolution
+sudo apt install evolution evolution-ews
+# 
+# emailadresss, lucatanvändarnamn utan @lu.se 
+# Host URL:  https://webmail.lu.se/ews/exchange.asmx
+# Klickar du sedan Fetch URL ska det dyka upp en lång url med en GUID som OAB URL (Offline Adress Book).
+# Välj NTLM som autentisering. Servern säger att den stödjer kerberos också, men det fick jag aldrig att fungera.
+# Hemma behöver jag dessutom starta med evolution --force-online för att få det att fungera, men det behövs inte på jobbet.
