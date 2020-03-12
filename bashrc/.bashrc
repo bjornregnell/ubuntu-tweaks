@@ -170,3 +170,24 @@ function z() {
   fi
 }
 export LUCATID=IfYouAreEmployedAtLUGiveYourLucatIDHere
+
+my-ip() {
+  echo $(curl -s https://bot.whatismyipaddress.com); 
+}
+
+# Set the title string at the top of your current terminal window or terminal window tab
+set-title() {
+    # If the length of string stored in variable `PS1_BAK` is zero...
+    # - See `man test` to know that `-z` means "the length of STRING is zero"
+    if [[ -z "$PS1_BAK" ]]; then
+        # Back up your current Bash Prompt String 1 (`PS1`) into a global backup variable `PS1_BAK`
+        PS1_BAK=$PS1 
+    fi
+
+    # Set the title escape sequence string with this format: `\[\e]2;new title\a\]`
+    # - See: https://wiki.archlinux.org/index.php/Bash/Prompt_customization#Customizing_the_terminal_window_title
+    TITLE="\[\e]2;$@\a\]"
+    # Now append the escaped title string to the end of your original `PS1` string (`PS1_BAK`), and set your
+    # new `PS1` string to this new value
+    PS1=${PS1_BAK}${TITLE}
+}
