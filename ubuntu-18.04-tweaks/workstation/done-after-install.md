@@ -165,3 +165,9 @@ sudo apt install ubuntu-restricted-extras
 
 # video player VLC
 sudo snap install vlc
+
+# youtube download
+# https://www.tecmint.com/download-mp3-song-from-youtube-videos/
+# https://github.com/ytdl-org/youtube-dl
+sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
