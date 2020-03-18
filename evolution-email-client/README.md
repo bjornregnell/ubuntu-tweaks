@@ -40,7 +40,10 @@ https://askubuntu.com/questions/1125058/how-to-change-evolutions-keyboard-shortc
 
 4. Here the spaces are only for indentation, but the semicolon at the beginning of the line comments-out the line.
 
-5. Remove the semicolon and make your change so that line might look now like, for example, (gtk_accel_path "<Actions>/mail/mail-reply-all" "<Super>r").
+5. Remove the semicolon and make your change so that line might look now like, for example: 
+```
+(gtk_accel_path "<Actions>/mail/mail-reply-all" "<Super>r")
+```
 
 6. Make sure you save, and then close the file in your text editor.
 
