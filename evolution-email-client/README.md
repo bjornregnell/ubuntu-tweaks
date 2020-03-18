@@ -20,6 +20,7 @@ Authentication, check for supprted type: NTLM
 * `m ` mark as read
 * `u ` mark as unread
 * `1 ` mark as important
+* `0 ` mark as important
 
 https://defkey.com/evolution-linux-shortcuts
 
@@ -53,6 +54,7 @@ My mods:
 ```
 (gtk_accel_path "<Actions>/mail/mail-mark-junk" "j")
 (gtk_accel_path "<Actions>/mail/mail-mark-important" "1")
+(gtk_accel_path "<Actions>/mail/mail-mark-unimportant" "0")
 (gtk_accel_path "<Actions>/mail/mail-mark-read" "m")
 (gtk_accel_path "<Actions>/mail/mail-mark-unread" "u")
 ```

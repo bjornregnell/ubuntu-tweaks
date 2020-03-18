@@ -73,7 +73,7 @@
 ; (gtk_accel_path "<Actions>/shell/switcher-style-both" "")
 ; (gtk_accel_path "<Actions>/mail/mail-filter-rule-for-recipients" "")
 ; (gtk_accel_path "<Actions>/mail/mail-goto-folder" "<Primary>g")
-; (gtk_accel_path "<Actions>/mail/mail-mark-unimportant" "")
+(gtk_accel_path "<Actions>/mail/mail-mark-unimportant" "0")
 ; (gtk_accel_path "<Actions>/mail/mail-next" "<Primary>Page_Down")
 ; (gtk_accel_path "<Actions>/mail/mail-forward" "<Primary>f")
 ; (gtk_accel_path "<Actions>/search-folders/mail-search-folder-from-mailing-list" "")
