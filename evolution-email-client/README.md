@@ -16,9 +16,9 @@ Authentication, check for supprted type: NTLM
 ## List of important shortcuts after mod (se next section)
 
 * `Alt-c ` focus search field, then enter to filter
-* `j ` mark as junk
-* `m ` mark as read
-* `u ` mark as unread
+* `Ctrl-j ` mark as junk
+* `Ctrl-k ` mark as read
+* `Ctrl-u ` mark as unread
 * `1 ` mark as important
 * `0 ` mark as important
 
