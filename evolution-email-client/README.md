@@ -31,7 +31,7 @@ This is my settings in the Receiving Options:
 
 This is how my Account Summary looks:
 
-![Wizard4](evolution-email-client/wizard4-account-summary.png)
+![Wizard4](wizard4-account-summary.png)
 
 
 
@@ -72,5 +72,5 @@ https://askubuntu.com/questions/1125058/how-to-change-evolutions-keyboard-shortc
 
 7. Now, re-open Evolution and you should see that the keyboard shortcut for Message->Reply to All has changed.
 
-My mods are in the [accels](evolution-email-client/accels)
+My mods are in the [accels](accels)
 
