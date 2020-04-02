@@ -4,14 +4,36 @@
 
 ## Installation wizard
 
-Server Type: Exchange Web Services
-User Name: tts-bre
-Host URL: https://webmail.lu.se/EWS/Exchange.asmx
+In the identity step enter name, email, and org.
 
-Then press "Fetch URL"
-Fetched URL filled in the OAB URL field:
-https://webmail.lu.se/OAB/71176bb8-e245-4d8e-829b-56753533707f/oab.xml
-Authentication, check for supprted type: NTLM
+![Wizard1](wizard1-identity.png)
+
+In the "Receiving Email" step enter:
+
+* Server Type: Exchange Web Services
+* User Name: your lucat id without @lu.se
+* Host URL: https://webmail.lu.se/EWS/Exchange.asmx
+* Authentication, check for supported type: NTLM
+
+Then press "Fetch URL".
+The fetched URL is filled into the OAB URL field similar to 
+https://webmail.lu.se/OAB/longhashnumberhere/oab.xml
+
+![Wizard2a](wizard2a-receiving-email-before-fetch-url.png)
+
+After pressing "Fetch URL":
+
+![Wizard2b](wizard2b-receiving-email-after-fetch-url.png)
+
+This is my settings in the Receiving Options:
+
+![Wizard3](wizard3-receiving-options.png)
+
+This is how my Account Summary looks:
+
+![Wizard4](evolution-email-client/wizard4-account-summary.png)
+
+
 
 ## List of important shortcuts after mod (se next section)
 
@@ -50,12 +72,5 @@ https://askubuntu.com/questions/1125058/how-to-change-evolutions-keyboard-shortc
 
 7. Now, re-open Evolution and you should see that the keyboard shortcut for Message->Reply to All has changed.
 
-My mods:
-```
-(gtk_accel_path "<Actions>/mail/mail-mark-junk" "j")
-(gtk_accel_path "<Actions>/mail/mail-mark-important" "1")
-(gtk_accel_path "<Actions>/mail/mail-mark-unimportant" "0")
-(gtk_accel_path "<Actions>/mail/mail-mark-read" "m")
-(gtk_accel_path "<Actions>/mail/mail-mark-unread" "u")
-```
+My mods are in the [accels](evolution-email-client/accels)
 
