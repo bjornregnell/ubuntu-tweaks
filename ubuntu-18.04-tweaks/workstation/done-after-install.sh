@@ -179,3 +179,23 @@ sudo apt install evolution evolution-ews
 # Klickar du sedan Fetch URL ska det dyka upp en lång url med en GUID som OAB URL (Offline Adress Book).
 # Välj NTLM som autentisering. Servern säger att den stödjer kerberos också, men det fick jag aldrig att fungera.
 # Hemma behöver jag dessutom starta med evolution --force-online för att få det att fungera, men det behövs inte på jobbet.
+
+
+# microsoft teams, download from here
+# https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-is-now-available-on-linux/ba-p/1056267
+
+sudo gdebi teams_1.3.00.958_amd64.deb
+
+
+#web cam drivers and settings v4l2
+# http://www.techytalk.info/webcam-settings-control-ubuntu-fedora-linux-operating-system-cli/
+
+sudo apt install v4l-utils
+
+v4l2-ctl -h # --help
+v4l2-ctl -D # --info
+v4l2-ctl -l # --list-ctrls
+
+# slack
+# https://snapcraft.io/install/slack/ubuntu
+sudo snap install slack --classic
