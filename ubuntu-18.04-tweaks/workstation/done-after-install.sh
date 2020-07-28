@@ -157,6 +157,8 @@ sudo apt install xul-ext-lightning
 # ban evil login attempts:
 # https://hostadvice.com/how-to/how-to-setup-fail2ban-on-your-ubuntu-18-04-vps-server-or-dedicated-server/
 sudo apt install fail2ban
+
+#best editor of all times (so far...)
 sudo snap install --classic vscode
 
 # extra fonts and codecs
@@ -171,9 +173,21 @@ sudo snap install vlc
 # https://github.com/ytdl-org/youtube-dl
 sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
+
+
 # email client evolution
-sudo apt install evolution evolution-ews
-# 
+#sudo apt install evolution evolution-ews
+# instead use flatpak version to get latest:
+#  https://www.omgubuntu.co.uk/2019/02/how-to-install-flatpak-on-ubuntu-flathub
+#    https://flatpak.org/setup/Ubuntu/
+#    https://docs.flatpak.org/en/latest/using-flatpak.html#basic-commands
+
+# Use from within running "Evolution File->backup Evolution Data" from other/older Evolution install and then select restore after installing new instance/version:
+
+flatpak install flathub org.gnome.Evolution
+flatpak update
+
+# These are instructions for config of Evolution from scratch if you dont use backup/restore:
 # emailadresss, lucatanvändarnamn utan @lu.se 
 # Host URL:  https://webmail.lu.se/ews/exchange.asmx
 # Klickar du sedan Fetch URL ska det dyka upp en lång url med en GUID som OAB URL (Offline Adress Book).
