@@ -90,3 +90,11 @@ sudo tlp-stat -s
 sudo tlp-stat -b
 sudo tlp fullcharge 
 more /etc/default/tlp
+
+# kdenlive and vlc
+sudo snap install vlc 
+sudo add-apt-repository ppa:kdenlive/kdenlive-stable
+sudo apt-get update
+sudo apt install kdenlive
+# dark theme for kdenlive
+sudo apt install breeze

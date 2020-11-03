@@ -213,3 +213,11 @@ v4l2-ctl -l # --list-ctrls
 # slack
 # https://snapcraft.io/install/slack/ubuntu
 sudo snap install slack --classic
+
+# kdenlive and vlc
+sudo snap install vlc 
+sudo add-apt-repository ppa:kdenlive/kdenlive-stable
+sudo apt-get update
+sudo apt install kdenlive
+# dark theme for kdenlive
+sudo apt install breeze
