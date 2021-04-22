@@ -8,7 +8,6 @@
   * Click save
   * When you click "Remote access" you should now be able to enter your credentials. Use LucatID (example: ldc-abc without @lu.se)
   
-Lösenord: LucatLösenord eller StudentLösenord  
 ## To access cs network: On Ubuntu 18.04 and older
 * Install Shrew Soft VPN Client with `sudo apt install ike`
 * Import settings file `cs-connect.vpn` in this dir using "Import" within shrew
