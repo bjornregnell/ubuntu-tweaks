@@ -1,6 +1,16 @@
+# install vs code as deb package
+```
+sudo apt install apt-transport-https
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stab>
+sudo apt install code
+```
+
+# fix keyboard shortcut clash in markdown 
+
 After installing Markdown All In One there is a clash with the keyboard shortcut for multiline editing.
 
-1. Change shortcut in user `keybindings.json`:
+1. *This is not needed if you sync your user settings  in vscode, but otherwise:* Change shortcut in user `keybindings.json`:
 ```json
 // Place your key bindings in this file to override the defaults
 [
