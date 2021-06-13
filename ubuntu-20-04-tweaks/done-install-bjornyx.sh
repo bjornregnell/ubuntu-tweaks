@@ -55,7 +55,33 @@ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt install code
 
+
+# tweak gedit
+  ## Prohibit gedit to pollute folders with backup~ files:
+gsettings set org.gnome.gedit.preferences.editor create-backup-copy 'false'
+  ## Show line numbers:
+gsettings set org.gnome.gedit.preferences.editor display-line-numbers 'true'
+  ## Dark theme:
+gsettings set org.gnome.gedit.preferences.editor scheme 'oblivion'
+
+# Kojo --- check latest version number here: http://www.kogics.net/kojo-download
+cd ~/Downloads
+wget https://github.com/litan/kojo/releases/download/2.9.10_release/Kojo_unix_2_9_10_with_jre.sh
+sh Kojo_unix_2_9_10_with_jre.sh
+
+#https://ubuntuhandbook.org/index.php/2020/04/google-chrome-ubuntu-20-04-official-repository/
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+sudo apt update && sudo apt install google-chrome-stable
+
+
+#OBS studio  https://obsproject.com/download
+sudo apt update && sudo apt install ffmpeg
+sudo add-apt-repository ppa:obsproject/obs-studio
+sudo apt update && sudo apt install obs-studio
+
 # install gdebi to install deb packages with dependencies
+#   this will install a boat load of perl stuff
 sudo apt install gdebi
 
 # apps better installed via snaps to get latest version
