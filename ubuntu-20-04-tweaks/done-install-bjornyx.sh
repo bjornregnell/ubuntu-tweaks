@@ -5,6 +5,12 @@ sudo apt install exfat-fuse exfat-utils
 sudo apt install ubuntu-restricted-extras
 sudo apt install curl
 
+# to enable terminal tools for graphics diagnostics etc
+sudo apt install mesa-utils
+# enables this command to check which GPU is in use, nvidia or intel:
+glxinfo | grep vendor
+
+
 sudo apt install git
 git config --global user.email "bjorn.regnell@cs.lth.se"
 git config --global user.name "bjornregnell"
@@ -74,15 +80,38 @@ wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key ad
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 sudo apt update && sudo apt install google-chrome-stable
 
-
 #OBS studio  https://obsproject.com/download
 sudo apt update && sudo apt install ffmpeg
 sudo add-apt-repository ppa:obsproject/obs-studio
 sudo apt update && sudo apt install obs-studio
 
+#Microsoft Teams
+# https://docs.microsoft.com/en-us/microsoftteams/get-clients#linux
+# https://www.microsoft.com/en-us/microsoft-teams/download-app
+sudo dpkg -i **teams downloaded deb-file**
+
+
 # install gdebi to install deb packages with dependencies
-#   this will install a boat load of perl stuff
+#   this will install a boat-load of perl stuff
 sudo apt install gdebi
+
+# Zoom: Download deb from here https://zoom.us/support/download
+sudo gdebi zoom_amd64.deb 
+
+# install flatpak and flathub
+# https://www.omgubuntu.co.uk/2019/02/how-to-install-flatpak-on-ubuntu-flathub
+sudo add-apt-repository ppa:alexlarsson/flatpak
+sudo apt update && sudo apt install flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo apt install gnome-software-plugin-flatpak
+
+# Email client Evolution that works with EWS
+# DON'T use apt to install Evolution, use flathub to get latest
+flatpak install flathub org.gnome.Evolution
+# To bootstrap using another machine with Evolution:
+#    File -> Back up Evolution Data
+# save file somewhere and transfer to this machine and:
+#    File -> Restore Evolution Data
 
 # apps better installed via snaps to get latest version
 sudo snap install tree spotify
