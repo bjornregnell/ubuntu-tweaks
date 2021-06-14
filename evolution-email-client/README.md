@@ -1,6 +1,38 @@
 # Evolution email client
 
-`sudo apt update && sudo apt install evolution evolution-ews`
+Apt install does not work on ubuntu 20.04 as it installs an old version that does not work with EWS and gives this strange error: 
+
+`Error performing TLS handshake: The Diffie-Hellman prime sent by the server is not acceptable (not long enough)`
+
+*DOES NOT WORK: sudo apt update && sudo apt install evolution evolution-ews*
+
+## Install flatpak version 
+
+Install flatpak and flathub, see  https://www.omgubuntu.co.uk/2019/02/how-to-install-flatpak-on-ubuntu-flathub
+```
+sudo add-apt-repository ppa:alexlarsson/flatpak
+
+sudo apt update && sudo apt install flatpak
+
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+sudo apt install gnome-software-plugin-flatpak
+
+flatpak install flathub org.gnome.Evolution
+```
+
+
+USE FLATPAK VERSION and bootstrap from backup as described above or if it is the first time, use the wizard.
+
+# Bootstrap form existing install
+
+To bootstrap using another machine where you already have Evolution:
+   * File -> Back up Evolution Data
+Save file somewhere and transfer to this machine and use "Restore from backup in the wizard" or do:
+   * File -> Restore Evolution Data
+If it is the first time use below wizard guide
+
+
 
 ## Installation wizard
 
