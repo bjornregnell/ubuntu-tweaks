@@ -116,3 +116,7 @@ flatpak install flathub org.gnome.Evolution
 # apps better installed via snaps to get latest version
 sudo snap install tree spotify
 
+# to enable gnome shell extensions
+sudo apt install chrome-gnome-shell
+# add extension cpu-power-manager from here:
+https://extensions.gnome.org/extension/945/cpu-power-manager/
