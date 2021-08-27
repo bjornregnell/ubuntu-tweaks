@@ -1,0 +1,5 @@
+MSG="click on window to remove maximize, then click again in that window"
+notify-send "$MSG"
+echo "$MSG" 
+wmctrl -r ":SELECT:" -b remove,maximized_vert,maximized_horz
+wmctrl -r ":SELECT:" -e 0,0,0,1920,1080
