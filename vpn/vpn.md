@@ -11,6 +11,7 @@
   * When you click "Remote access" you should now be able to enter your credentials. Use LucatID (example: ldc-abc without @lu.se)
   
 ## To access cs network: On Ubuntu 18.04 and older
+* Note that ike is now dead; this is for old systems:
 * Install Shrew Soft VPN Client with `sudo apt install ike`
 * Import settings file `cs-connect.vpn` in this dir using "Import" within shrew
 * Open and login with lucat id
