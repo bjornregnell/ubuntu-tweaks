@@ -1,4 +1,4 @@
-## To access LU VPN on newer systems 18.04 and beyond
+## To access LU VPN on Ubuntu 18.04 and beyond
 * Install FortiClient VPN (there are a lot of products from forticlient but you need the one called just that to not get alot of stuff you dont want) by downloading this deb  https://links.fortinet.com/forticlient/deb/vpnagent also available here also including rpm, Windows etc: https://www.fortinet.com/support/product-downloads#vpn 
 (for old Ubuntu < 18.04 see here https://www.forticlient.com/repoinfo  )
 * Install the deb with `sudo apt install ./nameofdebyousavedhere.deb`
