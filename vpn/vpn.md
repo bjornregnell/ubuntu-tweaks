@@ -1,5 +1,6 @@
 ## To access LU VPN on newer systems 16.04 and beyond
-* Install FortiClient by following steps here: https://www.forticlient.com/repoinfo
+* Install FortiClient VPN (there are a lot of products from forticlient but you need the one called just that to not get alot of stuff you dont want) by downloading this deb  https://links.fortinet.com/forticlient/deb/vpnagent also available here also including rpm, Windows etc: https://www.fortinet.com/support/product-downloads#vpn 
+(for old Ubuntu <= 18.05 see here https://www.forticlient.com/repoinfo  )
 * Start the FortiClient app and:
   * Click on "Remote access" and make sure "SSL-VPN" is selected 
   * Remote gateway: vpn.lu.se
