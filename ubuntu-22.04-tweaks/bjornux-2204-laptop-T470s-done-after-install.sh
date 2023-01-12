@@ -22,7 +22,10 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 mkdir -p git/hub/bjornregnell && cd git/hub/bjornregnell
 git clone git@github.com:bjornregnell/ubuntu-tweaks.git$ curl -s "https://get.sdkman.io" | bash
 
-# skdman for java
+# java fallback
+sudo apt install openjdk-11-jdk  openjdk-11-source openjdk-11-doc
+
+# skdman for setting and switching java versions
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 source ~/.profile
 sdk version
@@ -34,6 +37,8 @@ curl -fL https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz 
 #latex
 sudo apt install hunspell hunspell-sv
 sudo apt install texlive-full
+
+sudo apt install gnome-tweaks
 
 # Email client Evolution that works with EWS
 # DON'T use apt to install Evolution, use flathub to get latest
@@ -52,13 +57,17 @@ flatpak install flathub org.gnome.Evolution
 # python3 the_file
 # use @lu.se after your lucat id 
 
+# install vs code from official site - download deb
+# https://code.visualstudio.com/
+cd ~/Downloads && sudo apt install ./thedeb_of_code
+
 # install deb-get from https://github.com/wimpysworld/deb-get
-sudo deb-get install code
 sudo deb-get install discord
 sudo deb-get install zoom
 sudo deb-get install pandoc
 
+# things best done with snap
 sudo snap install tree
 
 ######### TODO
-sudo deb-get install spotify
+sudo deb-get install spotify  # or is snap best?
