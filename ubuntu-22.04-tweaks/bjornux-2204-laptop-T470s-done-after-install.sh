@@ -1,8 +1,13 @@
 sudo apt update && sudo apt full-upgrade
+
+sudo apt install gnome-tweaks
+
+# flatpak
 sudo apt install flatpak gnome-software-plugin-flatpak && flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo apt install curl
 curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | sudo -E bash -s install deb-get
 
+# gti
 sudo apt install git
 git config --global user.email "bjorn.regnell@cs.lth.se"
 git config --global user.name "bjornregnell"
@@ -20,12 +25,18 @@ ssh-add ~/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub
 
 mkdir -p git/hub/bjornregnell && cd git/hub/bjornregnell
-git clone git@github.com:bjornregnell/ubuntu-tweaks.git$ curl -s "https://get.sdkman.io" | bash
+
+git clone git@github.com:bjornregnell/ubuntu-tweaks.git
+
 
 # java fallback
 sudo apt install openjdk-11-jdk  openjdk-11-source openjdk-11-doc
 
-# skdman for setting and switching java versions
+# sdkman
+curl -s "https://get.sdkman.io" | bash
+
+
+# use skdman for setting and switching java versions
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 source ~/.profile
 sdk version
@@ -38,11 +49,11 @@ curl -fL https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz 
 sudo apt install hunspell hunspell-sv
 sudo apt install texlive-full
 
-sudo apt install gnome-tweaks
-
 # Email client Evolution that works with EWS
 # DON'T use apt to install Evolution, use flathub to get latest
+
 flatpak install flathub org.gnome.Evolution
+
 # To bootstrap using another machine with Evolution:
 #    File -> Back up Evolution Data
 # save file somewhere and transfer to this machine and:
@@ -57,17 +68,24 @@ flatpak install flathub org.gnome.Evolution
 # python3 the_file
 # use @lu.se after your lucat id 
 
+# vs code by microsoft 
 # install vs code from official site - download deb
 # https://code.visualstudio.com/
-cd ~/Downloads && sudo apt install ./thedeb_of_code
+cd ~/Downloads && sudo apt install ./thedeb
 
+# deb-get
 # install deb-get from https://github.com/wimpysworld/deb-get
+# things to best install with with deb-get:
 sudo deb-get install discord
 sudo deb-get install zoom
 sudo deb-get install pandoc
 
 # things best done with snap
 sudo snap install tree
+
+# manual install chrome from deb 
+# https://www.google.com/chrome/
+cd ~/Downloads && sudo apt install ./thedeb
 
 ######### TODO
 sudo deb-get install spotify  # or is snap best?
