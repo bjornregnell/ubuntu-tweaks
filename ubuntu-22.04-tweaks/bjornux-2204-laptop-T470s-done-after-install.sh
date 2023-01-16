@@ -80,6 +80,10 @@ sudo deb-get install discord
 sudo deb-get install zoom
 sudo deb-get install pandoc
 
+# syncthning
+sudo deb-get install syncthing
+# transfer id:s e.g. via email and add device in web gui of syncthing
+
 # things best done with snap
 sudo snap install tree
 
