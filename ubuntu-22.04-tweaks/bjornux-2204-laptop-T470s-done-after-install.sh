@@ -83,6 +83,8 @@ sudo deb-get install pandoc
 # syncthning
 sudo deb-get install syncthing
 # transfer id:s e.g. via email and add device in web gui of syncthing
+# make syncthing start on system startup by copying this file to your config:
+cp /usr/share/applications/syncthing-start.desktop ~/.config/autostart/.
 
 # things best done with snap
 sudo snap install tree
