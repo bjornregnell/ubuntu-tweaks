@@ -1,3 +1,7 @@
+# check what NVIDIA GPU and driver version you now have
+# https://linuxconfig.org/how-to-check-nvidia-driver-version-on-your-linux-system
+nvidia-smi 
+
 # https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-22-04
 sudo ubuntu-drivers autoinstall
 ubuntu-drivers devices # check what is recommended
