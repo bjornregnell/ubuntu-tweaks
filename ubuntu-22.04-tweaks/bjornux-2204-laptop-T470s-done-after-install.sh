@@ -97,5 +97,15 @@ sudo snap install tree
 # https://www.google.com/chrome/
 cd ~/Downloads && sudo apt install ./thedeb
 
+## install libreoffice from ppa
+sudo apt remove –purge libreoffice* && sudo apt autoclean && sudo apt autoremove
+sudo add-apt-repository ppa:libreoffice/ppa
+sudo apt update && sudo apt install libreoffice
+
+## install microsoft fonts
+## https://www.linuxcapable.com/install-microsoft-fonts-on-ubuntu-22-04-lts/
+## press TAB when prompted to get to Ok and Yes
+sudo apt install ttf-mscorefonts-installer -y
+
 ######### TODO
 sudo deb-get install spotify  # or is snap best?
