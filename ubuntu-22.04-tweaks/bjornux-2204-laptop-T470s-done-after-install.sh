@@ -35,7 +35,6 @@ sudo apt install openjdk-11-jdk  openjdk-11-source openjdk-11-doc
 # sdkman
 curl -s "https://get.sdkman.io" | bash
 
-
 # use skdman for setting and switching java versions
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 source ~/.profile
@@ -86,6 +85,10 @@ sudo deb-get install syncthing
 # make syncthing start on system startup by copying this file to your config:
 # https://docs.syncthing.net/users/autostart.html#linux
 cp /usr/share/applications/syncthing-start.desktop ~/.config/autostart/.
+
+# id syncthing gets out of synct and hangs on less than 100%
+syncthing --reset-database
+# a restart syncthing from Web GUI triggers rebuild of index 
 
 # things best done with snap
 sudo snap install tree
