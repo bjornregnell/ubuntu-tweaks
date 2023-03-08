@@ -106,6 +106,8 @@ sudo deb-get install syncthing
 # https://docs.syncthing.net/users/autostart.html#linux
 cp /usr/share/applications/syncthing-start.desktop ~/.config/autostart/.
 
+# show dir hierarchically
+sudo snap install tree 
 
 
 
