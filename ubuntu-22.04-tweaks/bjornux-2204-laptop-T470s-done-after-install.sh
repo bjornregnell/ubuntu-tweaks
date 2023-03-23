@@ -52,6 +52,8 @@ sudo apt install texlive-full
 # DON'T use apt to install Evolution, use flathub to get latest
 
 flatpak install flathub org.gnome.Evolution
+flatpak config --set languages 'en;sv'
+
 
 # To bootstrap using another machine with Evolution:
 #    File -> Back up Evolution Data
