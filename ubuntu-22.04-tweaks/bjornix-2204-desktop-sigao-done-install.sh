@@ -49,6 +49,8 @@ sudo apt install gnome-tweaks
 #  Keyboard & Mouse -> middle click paste -> OFF
 #  Windod -> Attach Modal Dialogs -> OFF 
 
+flatpak config languages --set "en;sv"
+sudo flatpak update
 
 # Email client Evolution that works with EWS
 # DON'T use apt to install Evolution, use flathub to get latest
@@ -108,6 +110,15 @@ cp /usr/share/applications/syncthing-start.desktop ~/.config/autostart/.
 
 # show dir hierarchically
 sudo snap install tree 
+
+# play mp3 mp4 etc
+sudo snap install vlc
+sudp apt install mpg123
+
+# extract pdf pages
+sudo snap install pdftk
+# example: extract page 6 to 8
+#  pdftk in.pdf cat 6-8 output out.pdf 
 
 
 
