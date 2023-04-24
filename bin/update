@@ -1,23 +1,27 @@
-echo -e "\n  \e[32m======= apt full-upgrade =======\e[0m\n"
+heading () {
+  echo -e "\n  \e[32m\e[7m  $1  \e[0m\n"
+}
+
+heading "apt"
 echo -e "  sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y\n"
 
 sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 
-echo -e "\n  \e[32m======= deb-get update && upgrade =======\e[0m\n"
+heading "deb-get"
 echo -e "  deb-get list --installed\n"
 deb-get list --installed
 echo -e "\n  deb-get update && sudo deb-get upgrade \n"
 
 deb-get update && sudo deb-get upgrade
 
-echo -e "\n  \e[32m======= snap refresh =======\e[0m\n"
+heading "snap"
 echo -e "  snap list \n"
 snap list
 echo -e "\n  sudo snap refresh\n"
 
 sudo snap refresh
 
-echo -e "\n  \e[32m======= flatpak update =======\e[0m\n"
+heading "flatpak"
 echo -e "  flatpak list \n"
 flatpak list
 echo -e "\n  flatpak update -y \n"
