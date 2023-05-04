@@ -11,6 +11,7 @@ curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | su
 sudo apt install git
 git config --global user.email "bjorn.regnell@cs.lth.se"
 git config --global user.name "bjornregnell"
+git config pull.rebase false
 
 # install xclip to paste to buffer from terminal
 sudo apt-get install xclip
