@@ -109,5 +109,9 @@ sudo apt update && sudo apt install libreoffice
 ## press TAB when prompted to get to Ok and Yes
 sudo apt install ttf-mscorefonts-installer -y
 
-######### TODO
 sudo deb-get install spotify  # or is snap best?
+
+# codecs etc
+sudo apt-get install ubuntu-restricted-extras
+sudo apt install ffmpeg
+
