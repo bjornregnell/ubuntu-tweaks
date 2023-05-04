@@ -122,6 +122,10 @@ sudo snap install pdftk
 # example: extract page 6 to 8
 #  pdftk in.pdf cat 6-8 output out.pdf 
 
+#### TODO
+# codecs etc
+sudo apt-get install ubuntu-restricted-extras
+sudo apt install ffmpeg
 
 
 
