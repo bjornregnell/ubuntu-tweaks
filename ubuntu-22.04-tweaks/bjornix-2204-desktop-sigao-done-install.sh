@@ -122,6 +122,14 @@ sudo snap install pdftk
 # example: extract page 6 to 8
 #  pdftk in.pdf cat 6-8 output out.pdf 
 
+# convert jpg to pdf
+sudo apt install imagemagick
+# edit this file to change line with PDF to be commented out using <!-- -->
+# sudo nano /etc/ImageMagick-6/policy.xml
+# see more info https://askubuntu.com/questions/1200965/convert-jpg-to-pdf
+# now you can do this in terminal: 
+# convert input.jpg output.pdf
+
 
 
 
