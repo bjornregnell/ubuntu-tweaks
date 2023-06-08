@@ -8,8 +8,9 @@ echo -e "  sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 
 heading "deb-get"
-echo -e "  deb-get update && deb-get list --installed\n"
-deb-get update && deb-get list --installed
+echo -e "  deb-get update && deb-get list | grep -i installed \n"
+deb-get update && deb-get list | grep -i installed
+
 echo -e "\n  sudo deb-get upgrade \n"
 
 sudo deb-get upgrade
