@@ -7,7 +7,7 @@ sudo apt install curl
 sudo apt install git
 git config --global user.email "bjorn.regnell@cs.lth.se"
 git config --global user.name "bjornregnell"
-git config pull.rebase false
+git config --global pull.rebase false
 
 # install xclip to paste to buffer from terminal
 sudo apt-get install xclip
