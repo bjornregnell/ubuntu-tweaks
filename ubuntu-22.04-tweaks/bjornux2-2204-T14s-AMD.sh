@@ -70,7 +70,10 @@ cd ~/Downloads && sudo apt install ./thedeb
 # IGNORE so called MonkeyPatch
 #   https://github.com/iocave/monkey-patch/issues/55
 
-####----- TODO below
+## install microsoft fonts
+## https://www.linuxcapable.com/install-microsoft-fonts-on-ubuntu-22-04-lts/
+## press TAB when prompted to get to Ok and Yes
+sudo apt install ttf-mscorefonts-installer -y
 
 # Email client Evolution that works with EWS
 # DON'T use apt to install Evolution, use flathub to get latest
@@ -83,17 +86,17 @@ flatpak config --set languages 'en;sv'
 # save file somewhere and transfer to this machine and:
 #    File -> Restore Evolution Data
 
+# codecs etc
+sudo apt-get install ubuntu-restricted-extras
+sudo apt install ffmpeg
+
+
+####----- TODO below
+
+
 #latex
 sudo apt install hunspell hunspell-sv
 sudo apt install texlive-full
-
-## install microsoft fonts
-## https://www.linuxcapable.com/install-microsoft-fonts-on-ubuntu-22-04-lts/
-## press TAB when prompted to get to Ok and Yes
-sudo apt install ttf-mscorefonts-installer -y
-
-# background terminal screen management
-sudo apt install screen
 
 # deb-get
 # install deb-get from https://github.com/wimpysworld/deb-get
@@ -117,7 +120,7 @@ sudo snap install tree
 
 # play mp3 mp4 etc
 sudo snap install vlc
-sudp apt install mpg123
+sudo apt install mpg123
 
 # extract pdf pages
 sudo snap install pdftk
@@ -132,6 +135,3 @@ sudo apt install imagemagick
 # now you can do this in terminal: 
 # convert input.jpg output.pdf
 
-# codecs etc
-sudo apt-get install ubuntu-restricted-extras
-sudo apt install ffmpeg
