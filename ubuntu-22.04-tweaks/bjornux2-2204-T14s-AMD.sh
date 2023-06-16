@@ -1,5 +1,3 @@
-#### TODO
-
 sudo apt update && sudo apt full-upgrade
 sudo apt install curl
 
@@ -43,6 +41,14 @@ source ~/.profile
 sdk version
 sdk install java 17.0.6-tem
 
+# scala
+sdk install scala
+sdk install scalacli
+sdk install sbt
+
+#add to .bashrc
+alias sbtn=sbtn-x86_64-pc-linux
+
 sudo apt install gnome-tweaks
 # gnome Settings todo: 
 #   Appearance -> Dark Theme
@@ -55,18 +61,6 @@ sudo apt install gnome-tweaks
 flatpak config languages --set "en;sv"
 sudo flatpak update
 
-# Email client Evolution that works with EWS
-# DON'T use apt to install Evolution, use flathub to get latest
-
-flatpak install flathub org.gnome.Evolution
-flatpak config --set languages 'en;sv'
-
-
-# To bootstrap using another machine with Evolution:
-#    File -> Back up Evolution Data
-# save file somewhere and transfer to this machine and:
-#    File -> Restore Evolution Data
-
 # vs code by microsoft 
 # install vs code from official site - download deb
 # https://code.visualstudio.com/
@@ -76,6 +70,19 @@ cd ~/Downloads && sudo apt install ./thedeb
 # IGNORE so called MonkeyPatch
 #   https://github.com/iocave/monkey-patch/issues/55
 
+####----- TODO below
+
+# Email client Evolution that works with EWS
+# DON'T use apt to install Evolution, use flathub to get latest
+
+flatpak install flathub org.gnome.Evolution
+flatpak config --set languages 'en;sv'
+
+# To bootstrap using another machine with Evolution:
+#    File -> Back up Evolution Data
+# save file somewhere and transfer to this machine and:
+#    File -> Restore Evolution Data
+
 #latex
 sudo apt install hunspell hunspell-sv
 sudo apt install texlive-full
@@ -84,15 +91,6 @@ sudo apt install texlive-full
 ## https://www.linuxcapable.com/install-microsoft-fonts-on-ubuntu-22-04-lts/
 ## press TAB when prompted to get to Ok and Yes
 sudo apt install ttf-mscorefonts-installer -y
-
-
-# scala
-sdk install scala
-sdk install scalacli
-sdk install sbt
-
-#add to .bashrc
-alias sbtn=sbtn-x86_64-pc-linux
 
 # background terminal screen management
 sudo apt install screen
@@ -107,6 +105,7 @@ sudo deb-get install pandoc
 sudo deb-get install libreoffice
 sudo deb-get install spotify-client
 
+# syncthing
 sudo deb-get install syncthing
 # transfer id:s e.g. via email and add device in web gui of syncthing
 # make syncthing start on system startup by copying this file to your config:
