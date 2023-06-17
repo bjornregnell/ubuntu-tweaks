@@ -58,6 +58,10 @@ sudo apt install gnome-tweaks
 #  Keyboard & Mouse -> middle click paste -> OFF
 #  Windod -> Attach Modal Dialogs -> OFF 
 
+# https://www.omgubuntu.co.uk/2021/07/enable-minimize-click-ubuntu-dock
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'
+
+
 flatpak config languages --set "en;sv"
 sudo flatpak update
 
@@ -90,10 +94,6 @@ flatpak config --set languages 'en;sv'
 sudo apt-get install ubuntu-restricted-extras
 sudo apt install ffmpeg
 
-
-####----- TODO below
-
-
 #latex
 sudo apt install hunspell hunspell-sv
 sudo apt install texlive-full
@@ -101,19 +101,13 @@ sudo apt install texlive-full
 # deb-get
 # install deb-get from https://github.com/wimpysworld/deb-get
 # things to best install with with deb-get:
+sudo deb-get update
 sudo deb-get install discord
 sudo deb-get install zoom
 sudo deb-get install teams-for-linux
 sudo deb-get install pandoc
 sudo deb-get install libreoffice
 sudo deb-get install spotify-client
-
-# syncthing
-sudo deb-get install syncthing
-# transfer id:s e.g. via email and add device in web gui of syncthing
-# make syncthing start on system startup by copying this file to your config:
-# https://docs.syncthing.net/users/autostart.html#linux
-cp /usr/share/applications/syncthing-start.desktop ~/.config/autostart/.
 
 # show dir hierarchically
 sudo snap install tree 
@@ -135,3 +129,13 @@ sudo apt install imagemagick
 # now you can do this in terminal: 
 # convert input.jpg output.pdf
 
+# syncthing
+sudo deb-get install syncthing
+
+####----- TODO below
+
+# transfer id:s e.g. via email and add device in web gui of syncthing
+
+# make syncthing start on system startup by copying this file to your config:
+# https://docs.syncthing.net/users/autostart.html#linux
+cp /usr/share/applications/syncthing-start.desktop ~/.config/autostart/.
