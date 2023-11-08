@@ -11,9 +11,9 @@ heading "deb-get"
 echo -e "  deb-get update && deb-get list | grep -i installed \n"
 deb-get update && deb-get list | grep -i installed
 
-echo -e "\n  sudo deb-get upgrade \n"
+echo -e "\n  deb-get upgrade \n"
 
-sudo deb-get upgrade
+deb-get upgrade
 
 heading "snap"
 echo -e "  snap list \n"
