@@ -9,3 +9,4 @@ echo >> /home/bjornr/bbk_cli.log
 # sudo dpkg -i bbk-cli_1.0.0_amd64.deb
 # more information (in swedish):  
 # https://www.bredbandskollen.se/bredbandskollen-cli/
+
