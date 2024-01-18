@@ -1,14 +1,14 @@
-# Using Gnome Evolution email client
+# Install and configure the Gnome Evolution email client
 
 Gnome Evolution is an email client for Linux/Ubuntu that works with Microsoft Exchange servers.
 
-USE THE FLATPAK VERSION. It is easiest to configure using a backup of your existing Evolution instance on another machine as described below (if you have one). Otherwise, if you are doing a fresh install, use the settings below, see esp. the settings for OAuth2 below if your organisation uses that with Microsoft Office365. 
+It is easiest to configure using a backup of your existing Evolution instance on another machine as described below (if you have one). Otherwise, if you are doing a fresh install, use the settings below, see esp. the settings for OAuth2 below if your organisation uses that with Microsoft Office365. 
 
-The examples below are for employees and students at Lund University, Sweden, so they need to be adjusted according to specifics if you are with another organisation.
+The configuration examples below are for employees and students at Lund University, Sweden - the configurations need to be adjusted according to your specifics if you are with another organisation.
 
-## Install flatpak version 
+## Install flatpak version of Gnome Evolution
 
-Install flatpak and flathub, see  https://www.omgubuntu.co.uk/2019/02/how-to-install-flatpak-on-ubuntu-flathub
+Install flatpak and flathub, see  https://www.omgubuntu.co.uk/2019/02/how-to-install-flatpak-on-ubuntu-flathub and https://wiki.gnome.org/Apps/Evolution/Flatpak
 ```
 sudo add-apt-repository ppa:alexlarsson/flatpak
 
@@ -19,6 +19,8 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 sudo apt install gnome-software-plugin-flatpak
 
 flatpak install flathub org.gnome.Evolution
+flatpak config --set languages 'en;sv'
+
 ```
 
 
