@@ -1,4 +1,4 @@
-# Microsoft Outlook and Microsoft Teams as Progressive Web Apps
+# MS Outlook and MS Teams as Progressive Web Apps
 
 If you install MS Edge on Linux you can install Outlook as a PWA (progressive web app).
 
