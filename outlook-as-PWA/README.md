@@ -2,7 +2,7 @@
 
 If you install MS Edge on Linux you can install Outlook as a PWA (progressive web app).
 
-One of the easiest ways to install MS Edge on Ubuntu is to use deb-get from here (which can also help you easilly install a bunch of other stuff such as MS Teams, Discord, vs code, google chrome, zoom, and many more):
+One of the easiest ways to install MS Edge on Ubuntu is to use deb-get from here (which can also help you easilly install a bunch of other useful things such as Discord, Spotify, VS Code, Google Chrome, Zoom, and many more apps not in the official Ubuntu repos):
 
 https://github.com/wimpysworld/deb-get
 
