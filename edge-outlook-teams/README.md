@@ -1,4 +1,4 @@
-# MS Outlook and MS Teams on Linux/Ubuntu
+# MS Edge, MS Outlook and MS Teams on Linux/Ubuntu
 
 If you install MS Edge on Linux you can install Outlook as a PWA (progressive web app).
 

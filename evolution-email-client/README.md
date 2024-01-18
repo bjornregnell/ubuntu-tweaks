@@ -6,7 +6,7 @@ It is easiest to configure using a backup of your existing Evolution instance on
 
 The configuration examples below are for employees and students at Lund University, Sweden - the configurations need to be adjusted according to your specifics if you are with another organisation.
 
-If Gnome Evolution does not work for you, or if you want a backup solution, you may want to [install Outlook as a PWA using Edge on Linux](https://github.com/bjornregnell/ubuntu-tweaks/tree/master/outlook-as-PWA).
+If Gnome Evolution does not work for you, or if you want a backup solution, you may want to [install Outlook as a PWA using Edge on Linux](https://github.com/bjornregnell/ubuntu-tweaks/tree/master/edge-outlook-teams).
 
 ## Install flatpak version of Gnome Evolution
 
