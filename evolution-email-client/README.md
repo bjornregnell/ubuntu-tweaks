@@ -62,7 +62,7 @@ For Lund University, Sweden these settings are:
 
 NOTE: These settings will not work if you are not an employee or student at Lund University with a LucatID - instead you may find your own organization's Application ID and Tenant ID by logging into your organization's MS Azure instance and look under Applications -> App Registrations and in the long list find the hash of `mail-oauth` as Application ID  [here](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceType/Microsoft_AAD_IAM )  and your Tennant ID [here](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/TenantOverview.ReactView).
 
-After entering Application ID and Tenant ID press the **Fetch URL** button. You should then be prompted by a login popup. NOTE: if you are with Lund University, you should use your Lucat ID followd by `@lu.se` and after successful authentication you should get an URL automatically in the **OAB URL** field starting with `https://outlook.office365.com/OAB/` then a hash (I got this hash: `deb9b89f-4f7f-4ffd-99c9-6bef306143ed` but yours might be different) and then ending with `/oab.xml?`
+After entering Application ID and Tenant ID press the **Fetch URL** button. You should then be prompted by a login popup. NOTE: if you are with Lund University, you should use your Lucat ID followd by `@lu.se` and after successful authentication you should get an URL automatically in the **OAB URL** field starting with `https://outlook.office365.com/OAB/` then a hash (I got this hash: `deb9b89f-4f7f-4ffd-99c9-6bef306143ed` but yours might be different) and then ending with `/oab.xml`
 
 Your settings for "Receiving Email" should look something similar to this (if you are with Lund University):
 
