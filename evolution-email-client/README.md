@@ -121,7 +121,7 @@ List of shortcuts that I want to modify (see how to modify them below)
 * `Ctrl-k ` mark as read
 * `Ctrl-u ` mark as unread
 * `1 ` mark as important
-* `0 ` mark as important
+* `0 ` unmark as important
 
 How to modify:
 
