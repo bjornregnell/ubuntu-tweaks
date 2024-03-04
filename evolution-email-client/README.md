@@ -45,44 +45,71 @@ Save file somewhere and transfer to this machine and use "Restore from backup in
 If you don't have a working installation continue with manual settings for OAuth2 below.
 
 
-## Settings for OAuth2 at Lund University
+## Settings for OAuth2 with Microsoft EWS Office365 at Lund University
+
+You need to use an Evolution-EWS account.
+
+From January we switched abruptly from our own EWS hosting to Microsoft Azure hosting and settings needed to be updated as reflected below. The old deprecated settings are avaliable [here]().
+
+You change the settings by right-clicking on your email account and select "Properties" to open the "Account Editor". Make sure settings are as follows.
+
+### Settings for "Identity"
+
+You should user your own public email as exemplified by my email below:
+
+![Identity](1-evolution-identity.png)
+
 
 ### Settings for "Receiving Email" 
 
-In "Configuration" enter:
-* Username: `your.email@your.domain`  (NOTE for Lund University employees/students: don't use your LucatID but your real email address)
+In the tab "Receiving Email" in the "Account Editor" use these values of each field:
+
+* Username: `your-lucatid@lu.se`  (NOTE for Lund University employees/students: don't use your email but your Lucat or StilID)
 * Host URL: `https://outlook.office365.com/EWS/Exchange.asmx`
 
-Check "Override Office365 settings" and enter the settings for Application ID and Tenant ID for your organisation. 
+* OAB URL:  `https://outlook.office365.com/OAB/deb9b89f-4f7f-4ffd-99c9-6bef306143ed/oab.xml`
 
-For Lund University, Sweden these settings are:
+- [x] Check "Override Office365 OAuth2 settings
 
-* Lund University Application ID: `ccae0f55-9eb5-4819-a12d-27d9dfc7b8be` 
-* Lund University Tenant ID `7aa68094-6104-41a6-b443-d4b52451f617`
+* Application ID: `ccae0f55-9eb5-4819-a12d-27d9dfc7b8be`
 
-NOTE: These settings will not work if you are not an employee or student at Lund University with a LucatID - instead you may find your own organization's Application ID and Tenant ID by logging into your organization's MS Azure instance and look under Applications -> App Registrations and in the long list find the hash of `mail-oauth` as Application ID  [here](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceType/Microsoft_AAD_IAM )  and your Tennant ID [here](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/TenantOverview.ReactView).
+* Tenant ID: `common`
 
-After entering Application ID and Tenant ID press the **Fetch URL** button. You should then be prompted by a login popup. NOTE: if you are with Lund University, you should use your Lucat ID followd by `@lu.se` and after successful authentication you should get an URL automatically in the **OAB URL** field starting with `https://outlook.office365.com/OAB/` then a hash (I got this hash: `deb9b89f-4f7f-4ffd-99c9-6bef306143ed` but yours might be different) and then ending with `/oab.xml`
+Unfold the "Advanced Setting" part and set the fields as follows:
 
-Your settings for "Receiving Email" should look something similar to this (if you are with Lund University):
+* Endpoint host: `login.microsoftonline.com`
 
-![Receving Email](receiving-email.png)
+* Redirect URI: `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
+Your settings for "Receiving Email" settings should look similar to this (if you are with Lund University):
 
-### My settings for "Identity"
+![Receving Email](2-evolution-receiving-email.png)
 
-Here are my settings for the "Identity" tab in "Account Editor" that you can see if you select "Preferences" by right-clicking onf your email account, but you should use your own specific data:
+NOTE: These settings was adapted from [here](https://hdkb.clemson.edu/phpkb/article.php?id=2668). These settings will not work if you are not an employee or student at Lund University with a LucatID - instead you may find your own organization's Application ID and Tenant ID by logging into your organization's MS Azure instance and look under Applications -> App Registrations and in the long list find the hash of `mail-oauth` as Application ID [here](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceType/Microsoft_AAD_IAM )  Perhaps if `common` does not work for your Tennant ID you may want to try the Tenant ID [from here](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/TenantOverview.ReactView).
 
-![Identity](identity.png) 
+### Settings for "Receiving Options"
 
+These are my settings, but you may want others:
 
-### My settings for "Receiving Options"
+![Receiving Options](3-evolution-receiving-options.png)
 
-Here are my settings, but you might want to modify them:
+### Settings for "Default"
 
-![Receving Email](receiving-options.png)
+As defaults might have changed you may need to update them as follows or similar:
 
+![Defaults](4-evolution-defaults.png)
 
+### Providing repeated authentication
+
+When reconnecting with new settings you need to provide authentication many times for each service: email, global address list, contacts, etc.
+
+Each time you must check that you have `your-lucat@lu.se" and NOTE that it should NOT be your email address. You must also everytime again and again for eternity confirm that you trust Lund University (if you do :) 
+
+It looks like this (I have greeked my lucat-id):
+
+![login](5-login.png)
+
+![trust](6-trust-alert.png)
 
 
 ## Modify the keyboard shortcuts of Gnome Evolution
@@ -122,35 +149,8 @@ https://askubuntu.com/questions/1125058/how-to-change-evolutions-keyboard-shortc
 My mods are here https://github.com/bjornregnell/ubuntu-tweaks/raw/master/evolution-email-client/accels 
 
 
-## DEPRECATED: Old settings for authentication NTLM
+## DEPRECATED: Old settings for EWS:
 
-Before LU switched to OAuth2 athentication and Office365 these were the old settings but it **DOES NOT work** any more for LU webmail:
+See old settings from when we self-hosted EWS [here]().
 
-In the identity step enter name, email, and org.
 
-![Wizard1](wizard1-identity.png)
-
-In the "Receiving Email" step enter:
-
-* Server Type: Exchange Web Services
-* User Name: your lucat id without @lu.se
-* Host URL: https://webmail.lu.se/EWS/Exchange.asmx
-* Authentication, check for supported type: NTLM
-
-Then press "Fetch URL".
-The fetched URL is filled into the OAB URL field similar to 
-https://webmail.lu.se/OAB/longhashnumberhere/oab.xml
-
-![Wizard2a](wizard2a-receiving-email-before-fetch-url.png)
-
-After pressing "Fetch URL":
-
-![Wizard2b](wizard2b-receiving-email-after-fetch-url.png)
-
-This is my settings in the Receiving Options:
-
-![Wizard3](wizard3-receiving-options.png)
-
-This is how my Account Summary looks:
-
-![Wizard4](wizard4-account-summary.png)
