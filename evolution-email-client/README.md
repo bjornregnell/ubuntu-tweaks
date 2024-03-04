@@ -95,7 +95,7 @@ These are my settings, but you may want others:
 
 ### Settings for "Default"
 
-As defaults might have changed you may need to update them as follows or similar:
+As defaults might have changed you may need to update them similar as follows but with our own account name:
 
 ![Defaults](4-evolution-defaults.png)
 
