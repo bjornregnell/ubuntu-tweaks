@@ -81,6 +81,8 @@ Unfold the "Advanced Setting" part and set the fields as follows:
 
 * Redirect URI: `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
+* Leave Resource URI blank.
+
 Your settings for "Receiving Email" settings should look similar to this (if you are with Lund University):
 
 ![Receving Email](2-evolution-receiving-email.png)
