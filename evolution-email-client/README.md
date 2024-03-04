@@ -55,7 +55,7 @@ You change the settings by right-clicking on your email account and select "Prop
 
 ### Settings for "Identity"
 
-You should user your own public email as exemplified by my email below:
+You should use your own public email as exemplified by my email below:
 
 ![Identity](1-evolution-identity.png)
 
