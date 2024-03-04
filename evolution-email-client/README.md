@@ -49,7 +49,7 @@ If you don't have a working installation continue with manual settings for OAuth
 
 You need to use an Evolution-EWS account.
 
-From January we switched abruptly from our own EWS hosting to Microsoft Azure hosting and settings needed to be updated as reflected below. The old deprecated settings are avaliable [here]().
+From January we switched abruptly from our own EWS hosting to Microsoft Azure hosting and settings needed to be updated as reflected below. The old deprecated settings are avaliable [here](https://github.com/bjornregnell/ubuntu-tweaks/tree/master/evolution-email-client/old-outdated-by-office365-swap).
 
 You change the settings by right-clicking on your email account and select "Properties" to open the "Account Editor". Make sure settings are as follows.
 
@@ -151,6 +151,6 @@ My mods are here https://github.com/bjornregnell/ubuntu-tweaks/raw/master/evolut
 
 ## DEPRECATED: Old settings for EWS:
 
-See old settings from when we self-hosted EWS [here]().
+See old settings from when we self-hosted EWS [here](https://github.com/bjornregnell/ubuntu-tweaks/tree/master/evolution-email-client/old-outdated-by-office365-swap).
 
 
