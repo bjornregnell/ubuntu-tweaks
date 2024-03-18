@@ -89,6 +89,8 @@ Your settings for "Receiving Email" settings should look similar to this (if you
 
 NOTE: These settings were adapted from [here](https://hdkb.clemson.edu/phpkb/article.php?id=2668). These settings will not work if you are not an employee or student at Lund University with a LucatID - instead you may find your own organization's Application ID and Tenant ID by logging into your organization's MS Azure instance and look under Applications -> App Registrations and in the long list find the hash of `mail-oauth` as Application ID [here](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceType/Microsoft_AAD_IAM )  Perhaps if `common` does not work for your Tennant ID you may want to try the Tenant ID [from here](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/TenantOverview.ReactView).
 
+* Click OK. You will be prompted to log in for each service, including email, one for each remote calendar, global address book, one for each remote contact list, tasks etc. So just keep login in until all are done...
+
 ### Settings for "Receiving Options"
 
 These are my settings, but you may want others:
