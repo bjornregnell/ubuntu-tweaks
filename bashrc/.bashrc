@@ -127,7 +127,7 @@ alias l='ls -CF'
 alias ls='ls --color=auto'
 
 alias sbtn=sbtn-x86_64-pc-linux
-alias g='echo "git fetch && git status && git show --summary" && git fetch && git status && git show --summary'
+alias g='echo -e "git fetch && git status\n" && git fetch && git status && echo -e "\ngit --summary\n" && git show --summary'
 alias c='code .'
 alias o='xdg-open'
 
