@@ -131,11 +131,16 @@ sudo apt install imagemagick
 
 # syncthing
 sudo deb-get install syncthing
-
-####----- TODO below
-
-# transfer id:s e.g. via email and add device in web gui of syncthing
-
 # make syncthing start on system startup by copying this file to your config:
 # https://docs.syncthing.net/users/autostart.html#linux
 cp /usr/share/applications/syncthing-start.desktop ~/.config/autostart/.
+
+# Start Syncthing Web GUI http://127.0.0.1:8384
+# Configure syncthing GUI password in settings
+# Transfer all device id:s via email and add one other introducer device in web gui of syncthing
+####----- TODO below
+# select "+Add Remote Device" and add other device set as Introducer and Auto-accept
+# As you set the first remote device added to Introducer and Auto-accept you will get all other devices from the introducer
+# On other introducer device: accept this device
+# On other introducer decice: in settings select folders to share 
+# On each new added device you need to accept on that device (if not auto-accept)
