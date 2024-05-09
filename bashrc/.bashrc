@@ -130,6 +130,7 @@ alias cal='ncal -Mbwy'
 
 alias sbtn=sbtn-x86_64-pc-linux
 alias g='echo -e "git fetch && git status\n" && git fetch && git status && echo -e "\ngit --summary\n" && git show --summary'
+alias s='echo -e "git pull && git push\n" && git pull && git push'
 alias c='code .'
 alias o='xdg-open'
 
