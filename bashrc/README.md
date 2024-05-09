@@ -12,11 +12,21 @@ In particular it includes:
 
 * some handy aliases/functions
 
-My config of prompt on 18.04:
+**Read all comments carefully**
+
+My config of prompt on 18.04 (old background behavior):
 ```bash
+  #---- replace below
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n$(__git_ps1 "\[\033[0;31m\](%s) \[\e[0m\]")\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+#-------- END GIT PROMPT
 
 ```
-My config of prompt on 22.04 and after:
+My config of prompt on 22.04 and after (new background behavior):
 ```bash
   #---- replace below
 if [ "$color_prompt" = yes ]; then
