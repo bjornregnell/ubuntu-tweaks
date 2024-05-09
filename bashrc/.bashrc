@@ -62,6 +62,7 @@ source /etc/bash_completion.d/git-prompt #(for Ubuntu 13.04 and higher)
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWCONFLICTSTATE=yes
 
 #PS1=$PS1'$(__git_ps1 "(%s) ")'
 
@@ -122,6 +123,16 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+### BEGIN some nice extra aliases
+alias ls='ls --color=auto'
+
+alias sbtn=sbtn-x86_64-pc-linux
+alias g='echo "git fetch && git status && git show --summary" && git fetch && git status && git show --summary'
+alias c='code .'
+alias o='xdg-open'
+
+### END some nice extra aliases
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -150,6 +161,7 @@ fi
 function tw() { texworks -stylesheet /home/bjornr/.TeXworks/configuration/mystyle.css "$@" & }
 
 # aliases for git
+function gf() { echo git fetch "$@"; git fetch "$@"; }
 function gis() { echo git status "$@"; git status "$@"; }
 function gil() { echo git log "$@"; git log "$@"; }
 function gia() { echo git add "$@"; git add "$@"; }
