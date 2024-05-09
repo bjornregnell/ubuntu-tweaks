@@ -59,6 +59,10 @@ fi
 #------ BEGIN GIT PROMT
 #http://stackoverflow.com/questions/9717137/displaying-git-branch-name-in-prompt-does-not-work-in-screen
 source /etc/bash_completion.d/git-prompt #(for Ubuntu 13.04 and higher)
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUPSTREAM=auto
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+
 #PS1=$PS1'$(__git_ps1 "(%s) ")'
 
 #https://help.ubuntu.com/community/CustomizingBashPrompt
