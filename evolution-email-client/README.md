@@ -65,21 +65,39 @@ You should use your own public email as exemplified below:
 In the tab "Receiving Email" in the "Account Editor" use these values of each field:
 
 * Username: `your-lucatid@lu.se`  (NOTE for Lund University employees/students: don't use your email but your Lucat or StilID)
-* Host URL: `https://outlook.office365.com/EWS/Exchange.asmx`
+* Host URL: 
+  ```
+  https://outlook.office365.com/EWS/Exchange.asmx
+  ```
 
-* OAB URL:  `https://outlook.office365.com/OAB/deb9b89f-4f7f-4ffd-99c9-6bef306143ed/oab.xml`
+* OAB URL:
+  ```
+  https://outlook.office365.com/OAB/deb9b89f-4f7f-4ffd-99c9-6bef306143ed/oab.xml`
+  ```
 
 - [x] Check "Override Office365 OAuth2 settings
 
-* Application ID: `ccae0f55-9eb5-4819-a12d-27d9dfc7b8be`
+* Application ID: 
+  ```
+  ccae0f55-9eb5-4819-a12d-27d9dfc7b8be
+  ```
 
-* Tenant ID: `common`
+* Tenant ID: 
+  ```
+  common
+  ```
 
 Unfold the "Advanced Setting" part and set the fields as follows:
 
-* Endpoint host: `login.microsoftonline.com`
+* Endpoint host: 
+  ```
+  login.microsoftonline.com
+  ```
 
-* Redirect URI: `https://login.microsoftonline.com/common/oauth2/nativeclient`
+* Redirect URI: 
+  ```
+  https://login.microsoftonline.com/common/oauth2/nativeclient
+  ```
 
 * Leave Resource URI blank.
 
