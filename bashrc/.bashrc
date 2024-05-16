@@ -56,8 +56,14 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+#------ BEGIN GIT PROMT
 #http://stackoverflow.com/questions/9717137/displaying-git-branch-name-in-prompt-does-not-work-in-screen
 source /etc/bash_completion.d/git-prompt #(for Ubuntu 13.04 and higher)
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUPSTREAM=auto
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWCONFLICTSTATE=yes
+
 #PS1=$PS1'$(__git_ps1 "(%s) ")'
 
 #https://help.ubuntu.com/community/CustomizingBashPrompt
@@ -82,13 +88,14 @@ BBLE="\[\033[44m\]" # background blue
 BMAG="\[\033[45m\]" # background magenta
 BCYN="\[\033[46m\]" # background cyan
 BWHT="\[\033[47m\]" # background white
-
+  #---- replace below
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n$(__git_ps1 "\[\033[0;31m\](%s) \[\e[0m\]")\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
+#-------- END GIT PROMPT
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -115,6 +122,20 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+### BEGIN some nice extra aliases
+alias ls='ls --color=auto'
+alias lh='ls -ACdF .*'
+alias cal='ncal -Mbwy'
+
+alias sbtn=sbtn-x86_64-pc-linux
+alias g='echo -e "git fetch && git status\n" && git fetch && git status && echo -e "\ngit --summary\n" && git show --summary'
+alias p='echo -e "git pull && git push\n" && git pull && git push'
+alias c='code .'
+alias o='xdg-open'
+alias s=scala-cli 
+
+### END some nice extra aliases
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -144,6 +165,7 @@ fi
 function tw() { texworks -stylesheet /home/bjornr/.TeXworks/configuration/mystyle.css "$@" & }
 
 # aliases for git
+function gf() { echo git fetch "$@"; git fetch "$@"; }
 function gis() { echo git status "$@"; git status "$@"; }
 function gil() { echo git log "$@"; git log "$@"; }
 function gia() { echo git add "$@"; git add "$@"; }
