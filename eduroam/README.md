@@ -23,7 +23,7 @@ When you have updated your password in Lucat via Passport then you need to chang
 
 1. Open a terminal and type the command `nm-connection-editor`
 
-2. In the dialog that opens select `Eduroam` and press the cog wheele at the bottom of the window.
+2. In the dialog that opens select `Eduroam` and press the cog wheel at the bottom of the window.
 
 ![Edit](nm-ce-1.png)
 
