@@ -11,9 +11,9 @@ sudo nano /etc/default/grub
 
 There shoud be a line commented by a `#` including `#GRUB_GFXMODE=640x480`
 
-Decomment it and att `,auto` so it looks like this:
+Decomment it by removing `#` and change it to:
 ```
-GRUB_GFXMODE=640x480,auto
+GRUB_GFXMODE=1280x720,auto
 ```
 
 Regenerate low-level GRUB configurations:
@@ -27,9 +27,6 @@ You need to restart to se the change.
 You can customize the rather uggly font if you want like by generating a GRUB-compatible font with specified size like so:
 
 ```
-sudo grub-mkfont --output=/boot/grub/fonts/UbuntuMono48.pf2 \
-  --size=48 /usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf
-
 sudo grub-mkfont --output=/boot/grub/fonts/DejaVuSansMono36.pf2 \
     --size=36 /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
 ```
@@ -42,7 +39,7 @@ sudo nano /etc/default/grub
 
 Add/modify the variable `GRUB_FONT`
 ```
-GRUB_FONT=/boot/grub/fonts/UbuntuMono48.pf2
+GRUB_FONT=/boot/grub/fonts/DejaVuSansMono36.pf2
 ```
 
 Regenerate low-level GRUB configurations
