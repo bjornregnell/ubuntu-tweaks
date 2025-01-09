@@ -16,31 +16,41 @@ Decomment it and att `,auto` so it looks like this:
 GRUB_GFXMODE=640x480,auto
 ```
 
-Don't forget to force the change to take effect by:
+Regenerate low-level GRUB configurations:
 ```
 sudo update-grub
 ```
+You need to restart to se the change.
 
-You can instead (or in addition) customize the rather uggly font if you want (but that involves some more terminal commands), see e.g. here: 
-* https://vietlq.github.io/2019/09/22/make-grub-font-size-bigger/
+# How to make the font nicer
+
+You can customize the rather uggly font if you want like by generating a GRUB-compatible font with specified size like so:
 
 ```
-# Generate a GRUB-compatible font with specified size 
-# from a TTF (type-type font)
 sudo grub-mkfont --output=/boot/grub/fonts/DejaVuSansMono36.pf2 \
     --size=36 /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
-
-# Edit high-level GRUB configuration file
-# Add/modify the variable `GRUB_FONT`
-# GRUB_FONT=/boot/grub/fonts/DejaVuSansMono36.pf2
-sudo vim /etc/default/grub
-
-# Regenerate low-level GRUB configurations
-sudo update-grub
-
-# Now you should restart
 ```
 
+Edit the GRUB configuration file: 
+
+```
+sudo nano /etc/default/grub
+```
+
+Add/modify the variable `GRUB_FONT`
+```
+GRUB_FONT=/boot/grub/fonts/DejaVuSansMono36.pf2
+```
+
+Regenerate low-level GRUB configurations
+```
+sudo update-grub
+```
+
+You need to restart to se the change.
+
+See more here:
+* https://vietlq.github.io/2019/09/22/make-grub-font-size-bigger/
 
 # How to make grub remember your last boot choice
 
