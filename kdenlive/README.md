@@ -1,7 +1,7 @@
-## use snap 
+## use snap for kdenlive
 
 ```
-sudo apt install kdenlive
+sudo snap install kdenlive
 ```
 
 ## old ppa (deprecated)
