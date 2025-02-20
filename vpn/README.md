@@ -28,7 +28,7 @@ sudo apt install network-manager-fortisslvpn network-manager-fortisslvpn-gnome o
 ![vpn-ipv4](network-vpn-lu-ipv4.png)
 
 
-### Using the forticlient app
+### Using the forticlient app (not recommended)
 * Install **FortiClient VPN** (there are a lot of products from Forticlient but you need the one called exactly just that to not get alot of stuff you dont want) by downloading this deb  https://links.fortinet.com/forticlient/deb/vpnagent also available here also including rpm, Windows etc: https://www.fortinet.com/support/product-downloads#vpn 
 (for old Ubuntu < 18.04 see here https://www.forticlient.com/repoinfo  )
 
