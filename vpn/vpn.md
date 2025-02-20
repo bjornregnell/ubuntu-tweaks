@@ -20,7 +20,7 @@ sudo apt install network-manager-fortisslvpn network-manager-fortisslvpn-gnome o
 7. User name: YOURLUCATID  (without @lu.se)
 8. Select IPv4 tab and check **Automatic (DHCP)** and DNS **Automnatic** and Routes **Automatic** and **"Use this connection only for resources on its network"**
 9. Click Add
-10. Chech the on button to connect
+10. Toggle ON to connect
 
 ### Using the forticlient app
 * Install **FortiClient VPN** (there are a lot of products from Forticlient but you need the one called exactly just that to not get alot of stuff you dont want) by downloading this deb  https://links.fortinet.com/forticlient/deb/vpnagent also available here also including rpm, Windows etc: https://www.fortinet.com/support/product-downloads#vpn 
