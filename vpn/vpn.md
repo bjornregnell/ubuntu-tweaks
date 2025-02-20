@@ -4,6 +4,25 @@ This guide is for students and employees at Lund University who want to access t
 
 **NOTE:** When you access the internet via LU VPN your traffic is monitored and you should only use it for school and work at LU and **not for private traffic**. For example, the IT Security Dept at LU LDC will not be pleased if you run torrent downloads or other heavy private traffic through the LU network.
 
+## Using bult in Ubuntu VPN settings (recommended)
+
+1. Install:
+```
+sudo apt install network-manager-fortisslvpn network-manager-fortisslvpn-gnome openfortivpn
+```
+
+2. Goto Settings -> Network 
+
+3. Click on + to add VPN network
+4. Select Fortinet SSLVPN
+5. Select Identity Tab and chose a Name, e.g. LU VPN
+6. Gateway: `vpn.lu.se`
+7. User name: YOURLUCATID  (without @lu.se)
+8. Select IPv4 tab and check **Automatic (DHCP)** and DNS **Automnatic** and Routes **Automatic** and **"Use this connection only for resources on its network"**
+9. Click Add
+10. Chech the on button to connect
+
+### Using the forticlient app
 * Install **FortiClient VPN** (there are a lot of products from Forticlient but you need the one called exactly just that to not get alot of stuff you dont want) by downloading this deb  https://links.fortinet.com/forticlient/deb/vpnagent also available here also including rpm, Windows etc: https://www.fortinet.com/support/product-downloads#vpn 
 (for old Ubuntu < 18.04 see here https://www.forticlient.com/repoinfo  )
 
