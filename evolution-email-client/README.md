@@ -37,11 +37,14 @@ So I have found that THIS DOES NOT WORK: *sudo apt update && sudo apt install ev
 
 ## Bootstrap form existing install
 
-If you have another machine where you already have a working Gnome Evolution instance you can bootstrap another machine like so:
+1. If you have another machine where you already have a working Gnome Evolution instance you can bootstrap another machine like so:
    * On the existing working installation: File -> Back up Evolution Data
-Save file somewhere and transfer to this machine and use "Restore from backup in the wizard" or do:
+
+2. Save file somewhere and transfer to this machine and use "Restore from backup in the wizard" or do:
    * On the new machine: File -> Restore Evolution Data
 
+3. When Evolution is up and running, trigger a new EWS login by opening Properties -> Receiving Email (all stuff should be filled in by the restore backup above) and clicking **Fetch URL** and you will be asked to give your credentials and save to your key ring.
+ 
 If you don't have a working installation continue with manual settings for OAuth2 below.
 
 
