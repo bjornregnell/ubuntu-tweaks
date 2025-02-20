@@ -1,6 +1,6 @@
-## How to access LU VPN on Linux/Debian Ubuntu from 22.04 and beyond
+## How to access LU VPN on Linux/Debian Ubuntu
 
-This guide is for students and employees at Lund University who want to access the internal university network securely via our Virtual Private Network. This is done via a special app called FortiClient VPN.
+This guide is for students and employees at Lund University who want to access the internal university network securely via our Virtual Private Network. For newer ubuntu versions this can be done via built-in Network settings. VPN can also be used via a special gui app called FortiClient VPN, but it is more complicated.
 
 **NOTE:** When you access the internet via LU VPN your traffic is monitored and you should only use it for school and work at LU and **not for private traffic**. For example, the IT Security Dept at LU LDC will not be pleased if you run torrent downloads or other heavy private traffic through the LU network.
 
