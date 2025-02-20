@@ -8,6 +8,7 @@ This guide is for students and employees at Lund University who want to access t
 
 1. Install:
 ```
+sudo apt install net-tools
 sudo apt install network-manager-fortisslvpn network-manager-fortisslvpn-gnome openfortivpn
 ```
 
