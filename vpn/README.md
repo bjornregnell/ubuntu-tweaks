@@ -6,7 +6,7 @@ This guide is for students and employees at Lund University who want to access t
 
 ## Using bult in Ubuntu VPN settings (recommended from 22.04)
 
-1. Install:
+1. Install this in terminal:
 ```
 sudo apt install net-tools
 sudo apt install network-manager-fortisslvpn network-manager-fortisslvpn-gnome openfortivpn
@@ -19,13 +19,34 @@ sudo apt install network-manager-fortisslvpn network-manager-fortisslvpn-gnome o
 5. Select Identity Tab and chose a Name, e.g. LU VPN
 6. Gateway: `vpn.lu.se`
 7. User name: YOURLUCATID  (without @lu.se)
-8. Select IPv4 tab and check **Automatic (DHCP)** and DNS **Automnatic** and Routes **Automatic** and **"Use this connection only for resources on its network"**
-9. Click Add
-10. Toggle ON to connect
 
 ![vpn-identity](network-vpn-lu.png)
 
+8. Select IPv4 tab and check **Automatic (DHCP)** and DNS **Automnatic** and Routes **Automatic** and **"Use this connection only for resources on its network"**
+
 ![vpn-ipv4](network-vpn-lu-ipv4.png)
+
+
+9. Click Add
+
+10. Toggle ON to connect
+
+11. Check with `ifconfig ppp0` in terminal that the connection was created. Output should be similar to:
+
+```
+$ ifconfig ppp0
+ppp0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1400
+        inet 172.20.52.4  netmask 255.255.255.255  destination 169.254.2.1
+        ppp  txqueuelen 3  (Point-to-Point Protocol)
+        RX packets 109  bytes 1105 (1.1 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 110  bytes 1137 (1.1 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+```
+
+
+
 
 
 ### Using the forticlient app (only recommended for ubuntu 20.04 or older)
