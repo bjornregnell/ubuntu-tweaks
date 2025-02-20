@@ -1,30 +1,18 @@
 # Install MS Teams
 
 
+deb-get is not working for teams anymore :( 
 
-## deb-get
+Use snap:
 
-TODO check how to `deb-get install teams-for???` 
+```
+sudo snap install teams-for-linux
+```
 
 ## as pwa
 
-TODO using Edge
+TODO explain how to use Edge and "Save as PWA" to provide Teams as separate "progressive web app"
 
 
-## ppa + deb
-
-For 18.04 and onwards:
-
-Instructions below based on https://itsubuntu.com/how-to-install-microsoft-teams-on-ubuntu/ last visited 2023-03-06
-
-
-```
-curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
-
-sudo apt update
-sudo apt install teams
-```
 
 
