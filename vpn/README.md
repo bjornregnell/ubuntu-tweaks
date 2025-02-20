@@ -66,9 +66,3 @@ ppp0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1400
   * When you click "Remote access" you should now be able to enter your credentials. If you are a student or employee at LU then use your LucatID (example: ldc-abc without @lu.se)
   * You can test that your VPN-connection is working by opening this link in your web browser: [http://www.ddg.lth.se/cgi-bin/showip](http://www.ddg.lth.se/cgi-bin/showip) and the text shown on the first line should start with 130.235 if you are connected via the LU domain.
   
-
-## To access cs network (`deprecated`): On Ubuntu 18.04 and older
-* Note that ike is now dead; this is for old systems:
-* Install Shrew Soft VPN Client with `sudo apt install ike`
-* Import settings file `cs-connect.vpn` in this dir using "Import" within shrew
-* Open and login with lucat id
