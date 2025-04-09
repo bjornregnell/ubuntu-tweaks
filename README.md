@@ -26,7 +26,7 @@ sha256sum -c SHA256SUMS 2>&1 | grep OK
 ## If you want to dual boot ubuntu on windows 11
 
 1. Turn off bitlocker: https://www.solveyourtech.com/how-to-disable-bitlocker-in-windows-11-a-step-by-step-guide/
-2. Shrink partition to gain space using then built in Disk Management: https://pureinfotech.com/change-partition-size-windows-11/
+2. Shrink partition to gain space using the built in Disk Management: https://pureinfotech.com/change-partition-size-windows-11/
 3. Install ubunutu alongside windows: https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview 
 
 ## During install
