@@ -230,6 +230,8 @@ sudo apt install terminator
 
 # Set terminator to default terminal:
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/terminator 50
+# get the right config for terminator
+mkdir ~/.config/terminator && cp ~/git/hub/bjornregnell/ubuntu-tweaks/terminator/config ~/.config/terminator/.
 
 # Graphviz 
 sudo apt install graphviz
