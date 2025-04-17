@@ -245,12 +245,7 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "[]"
 # See https://github.com/bjornregnell/ubuntu-tweaks/blob/master/vscode/README.md
 # especially important is to make below stuff for copyLinesDown with ctrl+ald+down on ubuntu....
 # in vs code open ~/.config/Code/User/keybindings.json
-# by oressing SHIFT+CTRL+P and type "keyboard short" and select "Preferences: Open Keyboard Shortcuts (JSON)"
-# make user this is still there as in default:
-# {
-#   "key": "ctrl+alt+down",
-#   "command": "editor.action.duplicateSelection"
-# },
+# by pressing SHIFT+CTRL+P and type "keyboard short" and select "Preferences: Open Keyboard Shortcuts (JSON)"
 # add this at end of ~/.config/Code/User/keybindings.json
 #  {
 #    "key": "ctrl+alt+down",
