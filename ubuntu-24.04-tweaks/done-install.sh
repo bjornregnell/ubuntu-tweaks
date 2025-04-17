@@ -12,13 +12,15 @@ sudo apt install curl
 sudo apt install gedit
 
 # codecs etc
+## press TAB when prompted to get to Ok and Yes
 sudo apt install ubuntu-restricted-extras
+
 sudo apt install ffmpeg
 
-## install microsoft fonts
+## install microsoft fonts is part pf ubuntu-restricted-extras
+# sudo apt install ttf-mscorefonts-installer -y
 ## https://www.linuxcapable.com/install-microsoft-fonts-on-ubuntu-22-04-lts/
 ## press TAB when prompted to get to Ok and Yes
-sudo apt install ttf-mscorefonts-installer -y
 
 sudo apt install gnome-shell-extension-manager
 
