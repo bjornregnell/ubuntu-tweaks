@@ -30,23 +30,24 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 sudo apt install gnome-tweaks
 # gnome Tweaks todo:
 #  Windows ->  Titlebar buttons-> placement -> left
-#  Mouse and touchpad-> middle click paste -> OFF
 #  Window -> Attach Modal Dialogs -> OFF
+#  Mouse and touchpad-> middle click paste -> OFF
 
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 gsettings set org.gnome.desktop.interface clock-show-seconds true
 # more settings:
 # Settings -> Appearance -> Dark
+# Settings -> Search -> move settings above files, pwd&keys, characters, calculator, sw
 # Settings -> Sound -> Output Volume -> max
 # Settings -> Sound -> Output Volume -> Yeti
 # Settings -> Ubuntu Desktop -> Enhanced Tiling -> Off
 # Settings -> Keyboard -> View and Customize Shortcuts ->
 #  Disble: 
-#    Move window one monitor down
-#    Move window one monitor up
+#    Navigation -> Move window one monitor down
+#    Navigation -> Move window one monitor up
 #  Modify:
-#    Maximize window -> Super+Up
-#    Restore window -> Super+Down
+#    Windows -> Maximize window -> Super+Up
+#    Windows -> Restore window -> Super+Down
 
 # if problem with sound on 24.04 revert frome pipewire to pulseaudio:
 sudo apt install pulseaudio pulseaudio-module-bluetooth gstreamer1.0-pulseaudio
