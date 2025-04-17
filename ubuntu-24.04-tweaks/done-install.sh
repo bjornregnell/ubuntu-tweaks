@@ -121,6 +121,9 @@ git config --global pull.rebase false
 # install xclip to paste to buffer from terminal
 sudo apt-get install xclip
 
+#password manager in terminal
+sudo apt install python3-keyring
+
 # https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 # https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
 # Add new ssh-key to github -- just press ENTER for defaults when asked:
