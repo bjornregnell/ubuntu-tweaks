@@ -1,0 +1,71 @@
+org.gnome.desktop.notifications application-children ['org-gnome-settings', 'firefox-firefox', 'org-gnome-evolution', 'snapd-desktop-integration-snapd-desktop-integration', 'discord', 'gnome-power-panel', 'org-gnome-gedit']
+org.gnome.gedit.plugins active-plugins ['docinfo', 'filebrowser', 'modelines', 'sort', 'spell']
+org.gnome.gedit.plugins.externaltools font 'Monospace 10'
+org.gnome.gedit.plugins.externaltools use-system-font true
+org.gnome.gedit.plugins.filebrowser binary-patterns ['*.la', '*.lo']
+org.gnome.gedit.plugins.filebrowser enable-remote false
+org.gnome.gedit.plugins.filebrowser filter-mode ['hide-hidden', 'hide-binary']
+org.gnome.gedit.plugins.filebrowser filter-pattern ''
+org.gnome.gedit.plugins.filebrowser open-at-first-doc true
+org.gnome.gedit.plugins.filebrowser root ''
+org.gnome.gedit.plugins.filebrowser tree-view true
+org.gnome.gedit.plugins.filebrowser virtual-root ''
+org.gnome.gedit.plugins.filebrowser.nautilus click-policy 'double'
+org.gnome.gedit.plugins.pythonconsole command-color '#314e6c'
+org.gnome.gedit.plugins.pythonconsole error-color '#990000'
+org.gnome.gedit.plugins.pythonconsole font 'Monospace 10'
+org.gnome.gedit.plugins.pythonconsole use-system-font true
+org.gnome.gedit.plugins.spell highlight-misspelled false
+org.gnome.gedit.plugins.time custom-format '%d/%m/%Y %H:%M:%S'
+org.gnome.gedit.plugins.time prompt-type 'prompt-selected-format'
+org.gnome.gedit.plugins.time selected-format '%c'
+org.gnome.gedit.preferences.editor auto-indent true
+org.gnome.gedit.preferences.editor auto-save false
+org.gnome.gedit.preferences.editor auto-save-interval uint32 10
+org.gnome.gedit.preferences.editor background-pattern 'none'
+org.gnome.gedit.preferences.editor bracket-matching true
+org.gnome.gedit.preferences.editor create-backup-copy false
+org.gnome.gedit.preferences.editor display-line-numbers true
+org.gnome.gedit.preferences.editor display-right-margin false
+org.gnome.gedit.preferences.editor editor-font 'Fira Code 12'
+org.gnome.gedit.preferences.editor ensure-trailing-newline true
+org.gnome.gedit.preferences.editor highlight-current-line true
+org.gnome.gedit.preferences.editor insert-spaces true
+org.gnome.gedit.preferences.editor max-undo-actions 2000
+org.gnome.gedit.preferences.editor restore-cursor-position true
+org.gnome.gedit.preferences.editor right-margin-position uint32 80
+org.gnome.gedit.preferences.editor scheme 'solarized-dark'
+org.gnome.gedit.preferences.editor search-highlighting true
+org.gnome.gedit.preferences.editor smart-home-end 'after'
+org.gnome.gedit.preferences.editor syntax-highlighting true
+org.gnome.gedit.preferences.editor tabs-size uint32 2
+org.gnome.gedit.preferences.editor use-default-font false
+org.gnome.gedit.preferences.editor wrap-last-split-mode 'word'
+org.gnome.gedit.preferences.editor wrap-mode 'word'
+org.gnome.gedit.preferences.encodings candidate-encodings ['']
+org.gnome.gedit.preferences.print margin-bottom 25.0
+org.gnome.gedit.preferences.print margin-left 25.0
+org.gnome.gedit.preferences.print margin-right 25.0
+org.gnome.gedit.preferences.print margin-top 15.0
+org.gnome.gedit.preferences.print print-font-body-pango 'Monospace 9'
+org.gnome.gedit.preferences.print print-font-header-pango 'Sans 11'
+org.gnome.gedit.preferences.print print-font-numbers-pango 'Sans 8'
+org.gnome.gedit.preferences.print print-header true
+org.gnome.gedit.preferences.print print-line-numbers uint32 0
+org.gnome.gedit.preferences.print print-syntax-highlighting true
+org.gnome.gedit.preferences.print print-wrap-mode 'word'
+org.gnome.gedit.preferences.ui bottom-panel-visible false
+org.gnome.gedit.preferences.ui show-tabs-mode 'auto'
+org.gnome.gedit.preferences.ui side-panel-visible false
+org.gnome.gedit.preferences.ui statusbar-visible true
+org.gnome.gedit.state.file-chooser filter-id 0
+org.gnome.gedit.state.file-chooser open-recent true
+org.gnome.gedit.state.history-entry replace-with-entry ['']
+org.gnome.gedit.state.history-entry search-for-entry ['']
+org.gnome.gedit.state.window bottom-panel-active-page ''
+org.gnome.gedit.state.window bottom-panel-size 140
+org.gnome.gedit.state.window side-panel-active-page ''
+org.gnome.gedit.state.window side-panel-size 200
+org.gnome.gedit.state.window size (900, 700)
+org.gnome.gedit.state.window state 0
+org.gnome.shell app-picker-layout [{'org.gnome.Geary.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'org.gnome.Books.desktop': <{'position': <5>}>, 'org.gnome.Photos.desktop': <{'position': <6>}>, 'org.gnome.Totem.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'org.gnome.gedit.desktop': <{'position': <9>}>, 'simple-scan.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'org.gnome.SystemMonitor.desktop': <{'position': <12>}>, 'org.gnome.Boxes.desktop': <{'position': <13>}>, 'org.gnome.Terminal.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'org.gnome.Characters.desktop': <{'position': <16>}>, 'yelp.desktop': <{'position': <17>}>, 'org.gnome.Screenshot.desktop': <{'position': <18>}>, 'org.gnome.Cheese.desktop': <{'position': <19>}>, 'org.gnome.font-viewer.desktop': <{'position': <20>}>}]
