@@ -8,12 +8,8 @@ echo -e "  sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 
 heading "deb-get"
-echo -e "  deb-get update && deb-get list | grep -i installed \n"
-deb-get update && deb-get list | grep -i installed
-
-echo -e "\n  deb-get upgrade \n"
-
-deb-get upgrade
+echo -e "  deb-get update && dep-get upgrade \n"
+deb-get update && deb-get upgrade
 
 heading "snap"
 echo -e "  snap list \n"
