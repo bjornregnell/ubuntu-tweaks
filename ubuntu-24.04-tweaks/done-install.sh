@@ -37,6 +37,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 gsettings set org.gnome.desktop.interface clock-show-seconds true
 # more settings:
 # Settings -> Appearance -> Dark
+gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
 # Settings -> Search -> move settings above files, pwd&keys, characters, calculator, sw
 # Settings -> Sound -> Output Volume -> max
 # Settings -> Sound -> Output Volume -> Yeti
