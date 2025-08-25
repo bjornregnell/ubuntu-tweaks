@@ -1,4 +1,4 @@
-# Guide for Ubuntu 24.04 to install printer using LU Papercut
+# Guide for Ubuntu 24.04 to install printer using LU Papercut via Samba
 
 1. Install printer settings:
   * In terminal: `sudo apt install system-config-printer`
