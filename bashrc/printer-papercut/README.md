@@ -22,7 +22,10 @@
   * How to do this automatically:
     1. Install scala: `curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup`
     2. Start the Scala REPL: `scala`
-    3. Paste this helper function: `def esc(s: String) = java.net.URLEncoder.encode(s, java.nio.charset.StandardCharsets.UTF_8.toString())`
+    3. Paste this helper function: 
+      ```scala
+      def esc(s: String) = java.net.URLEncoder.encode(s, java.nio.charset.StandardCharsets.UTF_8.toString())
+      ```
     4. Encode your password: `esc("mysecretpassword")`
     5. copy paste the secret escaped output (below called `yourescapedpassword`)
 
