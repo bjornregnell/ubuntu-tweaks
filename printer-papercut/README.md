@@ -26,7 +26,7 @@
       ```scala
       def esc(s: String) = java.net.URLEncoder.encode(s, java.nio.charset.StandardCharsets.UTF_8.toString())
       ```
-    4. Encode your password: `esc("mysecretpassword")`
+    4. Encode your password: `esc("mysecretpasswordwithspecialstuff!\"#@?/")`
     5. copy paste the secret escaped output (below called `yourescapedpassword`)
 
 6. Add and configure a new LU Papercut printer:
