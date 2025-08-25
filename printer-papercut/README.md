@@ -1,4 +1,4 @@
-# Guide for Ubuntu 24.04 to install printer using LU Papercut
+# Guide for Ubuntu 24.04 to install printer using LU Papercut via Samba
 
 1. Install printer settings:
   * In terminal: `sudo apt install system-config-printer`
@@ -22,14 +22,19 @@
   * How to do this automatically:
     1. Install scala: `curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup`
     2. Start the Scala REPL: `scala`
-    3. Paste this helper function: `def esc(s: String) = java.net.URLEncoder.encode(s, java.nio.charset.StandardCharsets.UTF_8.toString())`
+    3. Paste this helper function: 
+      ```scala
+      def esc(s: String) = java.net.URLEncoder.encode(s, java.nio.charset.StandardCharsets.UTF_8.toString())
+      ```
     4. Encode your password: `esc("mysecretpassword")`
     5. copy paste the secret escaped output (below called `yourescapedpassword`)
 
 6. Add and configure a new LU Papercut printer:
   * press the window button and type "Printers" and open the app (not the setting)
   * press the "Add+" button
-  * Enter the following in "Enter Device URI": `smb://uw/yourlicatid:yourescapedpassword@wpr764.uw.lu.se/LU-Papercut` where you replace  yourlicatid with your real Lucat ID and yourescapedpassword with the strange percentage-equiped string you get after encoding your password. Then click the "Forward" button. Note: protect your password from being peeked over your shoulder...
+  * Enter the following in "Enter Device URI": `smb://uw/yourlicatid:yourescapedpassword@wpr764.uw.lu.se/LU-Papercut` where you replace  yourlicatid with your real Lucat ID and yourescapedpassword with the strange percentage-equiped string you get after encoding your password. Then click the "Forward" button. 
+    - Don't forget the colon between your Lucat ID and your escaped password
+    - Note: protect your password from being peeked over your shoulder...
   * Wait while "searching for drivers" 
   * In Choose Driver: "Select printer from database" and under "Makes" select the top most one called "Generic" the click the "Forward" button 
   * When asked for "Models" select "PDF" and Driver: "Generic PDF Printer [en] (Recommended)" and click the "Forward" button
@@ -38,4 +43,3 @@
 
 
 You should now be able to print using Papercut by selecting "Generic-PDF" as printer and then blip your LUCAT card at any LU papercut printer and press Release from the printer interface.
-
