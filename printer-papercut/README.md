@@ -21,12 +21,12 @@
   * For explanation see:https://en.wikipedia.org/wiki/Percent-encoding
   * How to do this automatically:
     1. Install scala: `curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup`
-    2. Start the Scala REPL: `scala`
+    2. Start the Scala REPL in a new terminal window (or first restart your computer again): `scala`
     3. Paste this helper function: 
       ```scala
       def esc(s: String) = java.net.URLEncoder.encode(s, java.nio.charset.StandardCharsets.UTF_8.toString())
       ```
-    4. Encode your password: `esc("mysecretpasswordwithspecialstuff!\"#@?/")`
+    4. Encode your password by calling `esc` with your pw inside quotes: `esc("mysecretpasswordwithspecialstuff!\"#@?/")`
     5. copy paste the secret escaped output (below called `yourescapedpassword`)
 
 6. Add and configure a new LU Papercut printer:
