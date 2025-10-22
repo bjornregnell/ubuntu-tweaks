@@ -39,6 +39,8 @@ So I have found that THIS DOES NOT WORK: *sudo apt update && sudo apt install ev
 
 ## Bootstrap form existing install
 
+This is the simplest way of getting everything to work, but it requires that you already have another working installation...
+
 1. If you have another machine where you already have a working Gnome Evolution instance you can bootstrap another machine like so:
    * On the existing working installation: File -> Back up Evolution Data
 
