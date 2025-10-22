@@ -82,8 +82,10 @@ In the tab "Receiving Email" in the "Account Editor" use these values of each fi
 
 * Application ID: 
   ```
-  ccae0f55-9eb5-4819-a12d-27d9dfc7b8be
+  20460e5d-ce91-49af-a3a5-70b6be7486d1
   ```
+  * Note 1: The old application id was `ccae0f55-9eb5-4819-a12d-27d9dfc7b8be` but it stopped working 2025-10-22. This [issue](https://gitlab.gnome.org/GNOME/evolution-ews/-/issues/227) suggest another application ID [here](https://gitlab.gnome.org/GNOME/evolution-ews/-/issues/227#note_1724587) `d3590ed6-52b3-4102-aeff-aad2292ab01c` but I haven't tried that.
+  * Note 2: The App ID can be found in the azure backen via [entra.microsoft.com](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceType/Microsoft_AAD_IAM) (but you probably don't have access there...) by scrolling down in the long list there to "mail-oauth".
 
 * Tenant ID: 
   ```
