@@ -25,6 +25,8 @@ flatpak config --set languages 'en;sv'
 
 ```
 
+Alternative to flatpak that is simpler to install and that may be ok in the future when newer version arrive: `sudo apt install evolution-ews`
+
 
 ### Why not install with apt?
 
@@ -32,7 +34,7 @@ The Ubuntu package manager `apt` is not recommended as it installs an old versio
 
 `Error performing TLS handshake: The Diffie-Hellman prime sent by the server is not acceptable (not long enough)`
 
-So I have found that THIS DOES NOT WORK: *sudo apt update && sudo apt install evolution evolution-ews* - so instead use the flatpak version as described in the previous section.
+So I have found that THIS DOES NOT WORK: *sudo apt update && sudo apt install evolution evolution-ews* so instead use the flatpak version as described in the previous section.
 
 
 ## Bootstrap form existing install
