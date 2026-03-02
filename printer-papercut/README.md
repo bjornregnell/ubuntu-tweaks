@@ -40,6 +40,6 @@
   * When asked for "Models" select "PDF" and Driver: "Generic PDF Printer [en] (Recommended)" and click the "Forward" button
   * Given an optional location e.g. "Papercut" and press apply
 
-
+![printer-settings](printer-settings.png)
 
 You should now be able to print using Papercut by selecting "Generic-PDF" as printer and then blip your LUCAT card at any LU papercut printer and press Release from the printer interface.
