@@ -13,7 +13,7 @@ sudo apt install network-manager-fortisslvpn network-manager-fortisslvpn-gnome o
 ```
 2. Add your LUCATID to your `.bashrc` like so (id you haven't done so already):
 ```
-export LUCATID="tts-bre"
+export LUCATID="your-lucatid"
 ```
 
 2. Open a connection with `openfortivpn` and first enter sudo password then lucat password: 
