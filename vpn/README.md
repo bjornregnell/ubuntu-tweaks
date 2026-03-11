@@ -50,7 +50,7 @@ and enter password when asked. You can then in bash scripts access it like so:
 echo $(keyring get vpn-lu ${LUCATID})
 ```
 
-4. Download [this](TODO) convenient bash script and place in `~/bin/vpn-lu`
+4. Download [this](vpn-lu) convenient bash script and place in `~/bin/vpn-lu`
 ```
 #!/bin/bash
 

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+VPN_CMD="sudo openfortivpn vpn.lu.se:443 --username=${LUCATID}"
+green="\e[32m"
+red="\e[31m"
+reset="\e[0m"
+
+if ifconfig ppp0 &> /dev/null; then
+  ifconfig ppp0
+  ip a show ppp0
+  ip route | grep ppp0
+  if pgrep -x openfortivpn >/dev/null; then
+    echo -e "${green}VPN (openfortivpn) is running at PID $(pgrep -x openfortivpn)${reset}"
+  fi
+  curl www.ddg.lth.se/cgi-bin/showip
+else
+  echo "Attempting to start vpn in foreground of this shell"
+  echo "to stop vpn use Ctrl-C"
+  echo $VPN_CMD
+  echo $(keyring get vpn-lu ${LUCATID}) | $VPN_CMD
+fi
+
