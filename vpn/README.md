@@ -4,6 +4,79 @@ This guide is for students and employees at Lund University who want to access t
 
 **NOTE:** When you access the internet via LU VPN your traffic is monitored and you should only use it for school and work at LU and **not for private traffic**. For example, the IT Security Dept at LU LDC will not be pleased if you run torrent downloads or other heavy private traffic through the LU network.
 
+## Using `openfortivpn` in terminal (recommended from 24.04)
+
+1. Install this in terminal:
+```
+sudo apt install net-tools ubuntu-keyring
+sudo apt install network-manager-fortisslvpn network-manager-fortisslvpn-gnome openfortivpn
+```
+2. Add your LUCATID to your `.bashrc` like so (id you haven't done so already):
+```
+export LUCATID="tts-bre"
+```
+
+2. Open a connection with `openfortivpn` and first enter sudo password then lucat password: 
+```
+sudo openfortivpn vpn.lu.se:443 --username=$LUCATID
+```
+You should see something similar to:
+```
+[sudo] password for <userid>: <enter sudo password>
+VPN account password: <enter LUCATID password>
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+Using interface ppp0
+Connect: ppp0 <--> /dev/pts/5
+INFO:   Got addresses: [172.20.52.2], ns [130.235.9.9, 130.235.63.228]
+INFO:   Negotiation complete.
+INFO:   Negotiation complete.
+local  IP address 172.20.52.2
+remote IP address 169.254.2.1
+INFO:   Interface ppp0 is UP.
+INFO:   Setting new routes...
+INFO:   Adding VPN nameservers...
+Dropped protocol specifier '.openfortivpn' from 'ppp0.openfortivpn'. Using 'ppp0' (ifindex=7).
+INFO:   Tunnel is up and running.
+```
+
+3. Store your LUCATID password in safe keyring like so:
+```
+keyring set vpn-lu $LUCATID$
+``` 
+and enter password when asked. You can then in bash scripts access it like so:
+```
+echo $(keyring get vpn-lu ${LUCATID})
+```
+
+4. Download [this](TODO) convenient bash script and place in `~/bin/vpn-lu`
+```
+#!/bin/bash
+
+VPN_CMD="sudo openfortivpn vpn.lu.se:443 --username=${LUCATID}"
+green="\e[32m"
+red="\e[31m"
+reset="\e[0m"
+
+if ifconfig ppp0 &> /dev/null; then
+  ifconfig ppp0
+  ip a show ppp0
+  ip route | grep ppp0
+  if pgrep -x openfortivpn >/dev/null; then
+    echo -e "${green}VPN (openfortivpn) is running at PID $(pgrep -x openfortivpn)${reset}"
+  fi
+  curl www.ddg.lth.se/cgi-bin/showip
+else
+  echo "Attempting to start vpn in foreground of this shell"
+  echo "to stop vpn use Ctrl-C"
+  echo $VPN_CMD
+  echo $(keyring get vpn-lu ${LUCATID}) | $VPN_CMD
+fi
+```
+You can now start vpn by just typing `vpn-lu`
+
+
 ## Using bult in Ubuntu VPN settings (recommended from 22.04)
 
 1. Install this in terminal:
