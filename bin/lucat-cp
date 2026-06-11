@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# --- Detect display server and select clipboard backend ---
+if [[ -n "${WAYLAND_DISPLAY:-}" || "${XDG_SESSION_TYPE:-}" == "wayland" ]]; then
+    if ! command -v wl-copy >/dev/null 2>&1; then
+        echo "Wayland detected but wl-copy not found." >&2
+        echo "Install it with: sudo apt install wl-clipboard" >&2
+        exit 1
+    fi
+    copy_cmd()  { wl-copy; }
+    clear_cmd() { wl-copy --clear; }
+    backend="wl-copy (Wayland)"
+else
+    if ! command -v xclip >/dev/null 2>&1; then
+        echo "X11 session but xclip not found." >&2
+        echo "Install it with: sudo apt install xclip" >&2
+        exit 1
+    fi
+    copy_cmd()  { xclip -in -selection clipboard; }
+    clear_cmd() { printf '' | xclip -in -selection clipboard; }
+    backend="xclip (X11)"
+fi
+
+# --- Copy the secret (no trailing newline) ---
+keyring get lucat $LUCATID | tr -d '\n' | copy_cmd
+
+echo "Password copied to clipboard via ${backend}."
+read -rsp "Press Enter when done (auto-erases in 120s)... " -t 120 || true
+
+# --- Erase ---
+clear_cmd
+
+echo
+echo "Clipboard erased."
